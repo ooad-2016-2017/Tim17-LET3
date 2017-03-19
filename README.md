@@ -17,15 +17,28 @@ Aplikacija MyPub je namijenjena da poboljša interakciju između mušterija jedn
 
 ###### Rezervacija
 
-Korisniku je omoguceno da putem aplikacije pristupi mapi raspoloživih stolova za odredeni dan i nakon unosa informacija rezerviše dati stol. Odabrani stol se oslobada ukoliko mušterija kasni više od 15 minuta od vremena za koji je stol rezervisan. Ukoliko se mušterija pojavi u zakazano vrijeme zaposlenik potvrduje rezervaciju i stol se oznacava kao zauzet.
+Korisniku je omogućeno da putem aplikacije pristupi mapi raspoloživih stolova za određeni dan i nakon unosa informacija rezerviše dati stol. Odabrani stol se oslobadđa ukoliko mušterija kasni više od 15 minuta od vremena za koji je stol rezervisan. Ukoliko se mušterija pojavi u zakazano vrijeme zaposlenik potvrđuje rezervaciju i stol se označava kao zauzet.
 
-###### Narucivanje
+###### Naručivanje
 
-Uz pomoc posebno dizajniranog uredaja korisnik signalizira zaposlenicima da je spreman izvršiti narudžbu, nakon cega zaposlenik obracunava istu te se ažurira stanje pica u bazi podataka i eventualno šalje obavijest menadžeru da treba izvršiti narudžbu pica.
+Uz pomoć posebno dizajniranog uređaja korisnik signalizira zaposlenicima da je spreman izvršiti narudžbu, nakon čega zaposlenik obračunava istu te se ažurira stanje pića u bazi podataka i eventualno šalje obavijest menadžeru da treba izvršiti narudžbu pića.
 
 ###### Jukebox
 
-U sklopu aplikacije nalazi se i svojevrstan jukebox. Zaposlenicima je omoguceno kreiranje playlist-i i odabir jedne za datu vecer. Mušterije mogu glasati za pjesme sa playlist-e, nakon cega se pušta pjesma s najviše glasova. Na taj nacin mušterije mogu da ucestvuju u odabiru muzike. 
+U sklopu aplikacije nalazi se i svojevrstan jukebox. Zaposlenicima je omogućeno kreiranje playlist-i i odabir jedne za datu večer. Mušterije mogu glasati za pjesme sa playlist-e, nakon čega se pušta pjesma s najviše glasova. Na taj način mušterije mogu da učestvuju u odabiru muzike. 
+
+## Funkcionalnosti:
+
+- Kreiranje korisničkog računa
+- Kreiranje korisničkog računa za zaposlenike od strane menadžera
+- Prijava na sistem sa kreiranim korisničkim računom za različite vrste korisnika
+- Rezervacija stolova
+- Jukebox
+- Pregled menija 
+- Signalizacija narudžbe
+- Izdavanje narudžbe
+- Kreiranje playlist-i
+- Osvježavanje zaliha
 
 ## Akteri:
 
