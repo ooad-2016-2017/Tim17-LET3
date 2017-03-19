@@ -1,5 +1,7 @@
 ﻿# Tim17-LET3
 
+## MyPub
+
 Članovi Tima:
 
 1. Tin Vidović
@@ -8,7 +10,6 @@
 
 3. Edna Fazlagić
 
-# MyPub
 
 ## Opis teme:
 
