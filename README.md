@@ -1,4 +1,4 @@
-﻿# Tim17-LET3
+﻿# Tim17 - LET3
 
 ## MyPub
 
@@ -17,6 +17,10 @@ Aplikacija MyPub je namijenjena da poboljša interakciju između mušterija jedn
 
 ## Procesi:
 
+###### Registracija/Prijava
+
+Svaki korisnik aplikacije (u zavisnosti od tipa korisnika) ima mogućnost prijave sa ličnim podacima (username i password). Također novim mušterijama je omogućena registracija novog računa, dok registraciju, pregled, ažuriranje i brisanje novog osoblja obavlja administrator (menadžer).
+
 ###### Rezervacija
 
 Korisniku je omogućeno da putem aplikacije pristupi mapi raspoloživih stolova za određeni dan i nakon unosa informacija rezerviše dati stol. Odabrani stol se oslobadđa ukoliko mušterija kasni više od 15 minuta od vremena za koji je stol rezervisan. Ukoliko se mušterija pojavi u zakazano vrijeme zaposlenik potvrđuje rezervaciju i stol se označava kao zauzet.
@@ -24,6 +28,10 @@ Korisniku je omogućeno da putem aplikacije pristupi mapi raspoloživih stolova 
 ###### Naručivanje
 
 Uz pomoć posebno dizajniranog uređaja korisnik signalizira zaposlenicima da je spreman izvršiti narudžbu, nakon čega zaposlenik obračunava istu te se ažurira stanje pića u bazi podataka i eventualno šalje obavijest menadžeru da treba izvršiti narudžbu pića.
+
+###### Nabavka
+
+O nestanku ili smanjenju preostale kiločine određenog pića se automatski obavještava menadžer, koji zatim ima mogućnost popunjavanja forme za narudžbu sa namirnicama koje nedostaju.
 
 ###### Jukebox
 
@@ -33,6 +41,7 @@ U sklopu aplikacije nalazi se i svojevrstan jukebox. Zaposlenicima je omogućeno
 
 - Kreiranje korisničkog računa
 - Kreiranje korisničkog računa za zaposlenike od strane menadžera
+- Ažuriranje i brisanje korisničkih računa za zaposlenike od strane menadžera
 - Prijava na sistem sa kreiranim korisničkim računom za različite vrste korisnika
 - Rezervacija stolova
 - Jukebox
@@ -44,6 +53,6 @@ U sklopu aplikacije nalazi se i svojevrstan jukebox. Zaposlenicima je omogućeno
 
 ## Akteri:
 
-1. Mušterija - Mušterija je osoba koja ima mogućnost rezervacije, naručivanja i korištenja jukebox-a.
+1. Mušterija - Mušterija je gost pub-a.Mušterija ima mogućnost rezervacije, naručivanja i korištenja jukebox-a.
 2. Zaposlenik - Zaposlenik je osoba koja ima mogućnost da vidi sve narudžbe, upravlja rezervacijama, vrši izdavanje narudžbi te ima mogućnost kreiranja i biranja playlist-i.
-3. Menadžer - Menadžer je vlasnik lokala, ima mogućnost zapošlavanja radnika, upravlja zalihama pića.
+3. Menadžer - Menadžer je vlasnik lokala, ima mogućnost zapošljavanja radnika, otpuštanja radnika, u slučaju nestanka zaliha popunjava formu za narudžbu istih.
