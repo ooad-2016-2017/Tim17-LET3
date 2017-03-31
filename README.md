@@ -19,7 +19,11 @@ Aplikacija MyPub je namijenjena da poboljša interakciju između mušterija jedn
 
 ###### Registracija/Prijava
 
-Svaki korisnik aplikacije (u zavisnosti od tipa korisnika) ima mogućnost prijave sa ličnim podacima (username i password). Također novim mušterijama je omogućena registracija novog računa, dok registraciju, pregled, ažuriranje i brisanje novog osoblja te promociju mušterija u VIP obavlja administrator (menadžer).
+Svaki korisnik aplikacije (u zavisnosti od tipa korisnika) ima mogućnost prijave sa ličnim podacima (username i password). Također novim mušterijama je omogućena registracija novog računa.
+
+###### Registracija/Zapošljavanje osoblja
+
+Registraciju, pregled, ažuriranje i brisanje novog osoblja te promociju mušterija u VIP obavlja administrator (menadžer). Registraciju/Zapošljavanje osoblja vrši menadžer iz svoje forme, popunjavanjem adekvatnih ličnih podataka, kao i podataka o plati zaposlenika.
 
 ###### Rezervacija
 
