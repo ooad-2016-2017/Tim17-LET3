@@ -27,7 +27,7 @@ Registraciju, pregled, ažuriranje i brisanje novog osoblja te promociju mušter
 
 ###### Rezervacija
 
-Korisniku je omogućeno da putem aplikacije pristupi mapi raspoloživih stolova za određeni dan i nakon unosa informacija rezerviše dati stol. Odabrani stol se oslobadđa ukoliko mušterija kasni više od 15 minuta od vremena za koji je stol rezervisan. Ukoliko se mušterija pojavi u zakazano vrijeme zaposlenik potvrđuje rezervaciju i stol se označava kao zauzet.
+Korisniku je omogućeno da putem aplikacije pristupi mapi raspoloživih stolova za određeni dan i nakon unosa informacija rezerviše dati stol. Odabrani stol se oslobađa ukoliko mušterija kasni više od 15 minuta od vremena za koji je stol rezervisan. Ukoliko se mušterija pojavi u zakazano vrijeme zaposlenik potvrđuje rezervaciju i stol se označava kao zauzet.
 
 ###### Naručivanje
 
@@ -35,11 +35,11 @@ Uz pomoć posebno dizajniranog uređaja korisnik signalizira zaposlenicima da je
 
 ###### Plaćanje
 
-Prilikom svake narudžbe radnik vodi istu za jedan od stolova, dok mušterije imaju mogućnost da vide total koji treba platiti. Također mušterije imaju i opciju da plate elektronskim putem, nakon čega se otvara adekvatna forma za unos podataka.
+Prilikom svake narudžbe zaposlenik vodi istu za jedan od stolova, dok mušterije imaju mogućnost da vide total koji treba platiti. Također mušterije imaju i opciju da plate elektronskim putem, nakon čega se otvara adekvatna forma za unos podataka.
 
 ###### Nabavka
 
-O nestanku ili smanjenju preostale kiločine određenog pića se automatski obavještava menadžer, koji zatim ima mogućnost popunjavanja forme za narudžbu sa namirnicama koje nedostaju.
+O nestanku ili smanjenju preostale količine određenog pića se automatski obavještava menadžer, koji zatim ima mogućnost popunjavanja forme za narudžbu sa namirnicama koje nedostaju.
 
 ###### Jukebox
 
@@ -65,3 +65,4 @@ U sklopu aplikacije nalazi se i svojevrstan jukebox. Zaposlenicima je omogućeno
 1. Mušterija - Mušterija je gost pub-a.Mušterija ima mogućnost rezervacije, naručivanja i korištenja jukebox-a. Mušterija također može biti i VIP gost i kao takva ima određene popuste.
 2. Zaposlenik - Zaposlenik je osoba koja ima mogućnost da vidi sve narudžbe, upravlja rezervacijama, vrši izdavanje narudžbi te ima mogućnost kreiranja i biranja playlist-i.
 3. Menadžer - Menadžer je vlasnik lokala, ima mogućnost zapošljavanja radnika, otpuštanja radnika, u slučaju nestanka zaliha popunjava formu za narudžbu istih.
+4. Sistem za plaćanje - Eksterni sistem koji omogućava korisniku plaćanje elektronskim putem.
