@@ -1,0 +1,18 @@
+Princip 1 - Single Responsibility Principle (SRP):
+
+SRP je u velikom djelu ispoštovan, svaka klasa ima metode koji su vezani za nju, sa tim da treba implementirati klase koje ce se baviti serijalizacijom i upisom i citanjem za bazu podataka, u cilju odvajanja poslova pojedinih klasa.
+
+Princip 2 - Open Closed Principle (OCP):
+
+OCP je takoder u velikom djelu ispoštovan, sa izmjenama navedenim pod 1, jer modifikacije bilo koje od klasa ne vuku modifikacije u nekoj od drugih klasa.
+
+Princip 3 - Liskov Substitution Pprinciple (LSP):
+
+LSP je ispoštovan. imamo baznu klasu Korisnik iz koje su naslijedene klase zaposlenik musterija i menadžer i sve metode koje su direktno naslijedene iz klase Korisnik se mogu opravdano koristiti i u naslijedenim klasama. Dakle podtipovi su zamjenjivi osnovnim tipovima.
+
+Princip 4 - Dependency Inversion Principle (DIP):
+DIP je ispoštovan. Izbjegavala se ovisnost od konkretnih klasa u razvoju. Imamo ovisnost o klasi Korisnik, koja je apstraktna i kao takva se nece mnogo mijenjati.
+
+Princip 5 - Interface Segregation Principle (ISP):
+
+Princip je ispoštovan. Korisnik se koliko je moguce štiti od nacina implementacija klasa i kod dizajna klasa se izbjegla, koliko je to moguce, pojava "debelih" klasa.
