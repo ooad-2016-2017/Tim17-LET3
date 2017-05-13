@@ -17,6 +17,7 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
 
         </Grid.RowDefinitions>
 
@@ -39,6 +40,7 @@
         <TextBox x:Name="textBoxUsername" Grid.Row ="4"  Grid.Column="1"  Width="{Binding ElementName=kolona2,Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,0,0,0" Text="" MaxWidth="300" Height="40"/>
         <TextBox x:Name="textBoxPassword" Grid.Row ="5"  Grid.Column="1"  Width="{Binding ElementName=kolona2,Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,0,0,0" Text="" MaxWidth="300" Height="40"/>
         <TextBox x:Name="textBoxConfirmPassword" Grid.Row ="6" Grid.Column="1"  Width="{Binding ElementName=kolona2,Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,0,0,0" Text="" MaxWidth="300" Height="40"/>
+        <Button x:Name="buttonRegistrujSe" Content="Registruj se" Grid.Row="7" Grid.Column="0"  HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
 
 
 
