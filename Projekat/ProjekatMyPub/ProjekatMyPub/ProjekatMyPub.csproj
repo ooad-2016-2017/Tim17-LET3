@@ -105,8 +105,14 @@
     <Compile Include="View\MenadzerNarudzba.xaml.cs">
       <DependentUpon>MenadzerNarudzba.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\MenadzerZaposlenik.xaml.cs">
+      <DependentUpon>MenadzerZaposlenik.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Registracija.xaml.cs">
       <DependentUpon>Registracija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ZaposlenikPlaylista.xaml.cs">
+      <DependentUpon>ZaposlenikPlaylista.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ZaposlenikStolovi.xaml.cs">
       <DependentUpon>ZaposlenikStolovi.xaml</DependentUpon>
@@ -145,7 +151,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\MenadzerZaposlenik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Registracija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ZaposlenikPlaylista.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
