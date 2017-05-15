@@ -8,14 +8,14 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-        <Grid.RowDefinitions>
-        <RowDefinition Height="*"></RowDefinition>
-        <RowDefinition Height="*"></RowDefinition>
-        <RowDefinition Height="*"></RowDefinition>
-        <RowDefinition Height="*"></RowDefinition>
-        <RowDefinition Height="*"></RowDefinition>
        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -31,6 +31,5 @@
         <TextBox x:Name="textBoxUsername" Grid.Column="2" HorizontalAlignment="Left" Margin="0,10,-0.333,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" MaxWidth ="300"  Width="{Binding ElementName=kolona3,Path=ActualWidth}"/>
         <PasswordBox x:Name="passwordBoxLoginPassword" Grid.Column="2" HorizontalAlignment="Left" Margin="0,10,-0.333,0" Grid.Row="2" VerticalAlignment="Top" MaxWidth ="300"  Width="{Binding ElementName=kolona3,Path=ActualWidth}"/>
         <PasswordBox x:Name="passwordBox" Grid.Column="2" HorizontalAlignment="Left" Height="64" Margin="3137,256,-1576,-104" Grid.Row="4" VerticalAlignment="Top" Width="64"/>
-
     </Grid>
 </Page>
