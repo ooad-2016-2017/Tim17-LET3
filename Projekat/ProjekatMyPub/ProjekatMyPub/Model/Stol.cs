@@ -12,17 +12,41 @@ namespace ProjekatMyPub.Model
             private Int32 brojStola;
             private static Int32 zadnjiStol = 1;
 
-            public Stol(Boolean daLiJeZauzet)
-            {
-                DaLiJeZauzet = daLiJeZauzet;
-                BrojStola = zadnjiStol;
-                zadnjiStol++;
+        public Stol(Boolean daLiJeZauzet)
+        {
+            DaLiJeZauzet = daLiJeZauzet;
+            BrojStola = zadnjiStol;
+            zadnjiStol++;
 
+        }
+
+        public Boolean DaLiJeZauzet
+        {
+            get
+            {
+                return daLiJeZauzet;
             }
 
-            public Boolean DaLiJeZauzet { get => daLiJeZauzet; set => daLiJeZauzet = value; }
-            public Int32 BrojStola { get => brojStola; set => brojStola = value; }
+            set
+            {
+                daLiJeZauzet = value;
+            }
+        }
+
+        public Int32 BrojStola
+        {
+            get
+            {
+                return brojStola;
+            }
+
+            set
+            {
+                brojStola = value;
+            }
+        }
+
+       
         }
     }
-}
-}
+
