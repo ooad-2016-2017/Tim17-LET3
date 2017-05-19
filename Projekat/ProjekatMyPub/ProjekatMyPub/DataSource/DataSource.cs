@@ -26,23 +26,56 @@ namespace ProjekatMyPub.DataSource
 
         public static Korisnik DajKorisnikaPoId(int id)
         {
-            foreach(Korisnik p in korisnici)
+            foreach (Korisnik p in korisnici)
             {
-                if(p.Id == id)
+                if (p.Id == id)
                 {
                     return p;
-                }---
+                }
             }
 
-            var dialog = new MessageDialog("Pogresno korisnicko ime/sifra!", "Neuspjesna prijava");
+
+            var dialog = new MessageDialog("Ne postoji korisnik s trazenim id", "Nepostojeci id");
             return null;
         }
 
-        public DataSource()
+
+              private static List<Stol> stolovi = new List<Stol>()
+        {
+           new Stol (false),
+           new Stol(false),
+           new Stol(false),
+
+        };
+
+        public static List<Stol> DajSveStolove()
+        {
+            return stolovi;
+        }
+
+        public static Stol DajStolPoBroju(int brojStola)
+        {
+            foreach (Stol p in stolovi)
+            {
+                if (p.BrojStola == brojStola)
+                {
+                    return p;
+                }
+
+            }
+
+            var dialog = new MessageDialog("Nepostojeci id");
+            return null;
+        }
+
+            public DataSource()
         {
             Korisnik k1 = DajKorisnikaPoId(1);
             Korisnik k2 = DajKorisnikaPoId(2);
             Korisnik k3 = DajKorisnikaPoId(3);
+            Stol s1 = DajStolPoBroju(1);
+            Stol s2 = DajStolPoBroju(2);
+            Stol s4 = DajStolPoBroju(3);
         }
 
 
