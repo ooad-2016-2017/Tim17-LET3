@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjekatMyPub.Model
 {
-    class Menadzer
+    public class Menadzer : Korisnik
     {
         private String ime;
         private String prezime;
@@ -17,17 +17,20 @@ namespace ProjekatMyPub.Model
         private Decimal koeficijent;
         private Decimal plata;
 
-        public Menadzer(String ime, String prezime, DateTime datumRodjenja, String adresa, String telefon, Decimal baznaPlata, Decimal koeficijent)
+        public Menadzer(String username, String password, String email, String ime, String prezime, DateTime datumRodjenja, String adresa, String telefon,  Decimal koeficijent)
+            : base(username, password, email)
         {
+            
             Ime = ime;
             Prezime = prezime;
             DatumRodjenja = datumRodjenja;
             Adresa = adresa;
             Telefon = telefon;
-            BaznaPlata = baznaPlata;
-            Koeficijent
+            Koeficijent = koeficijent;
+            Plata = BaznaPlata * Koeficijent;
 
         }
+
         public string Ime
         {
             get
