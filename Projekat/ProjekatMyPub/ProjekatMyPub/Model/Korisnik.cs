@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ProjekatMyPub.Model
 {
 
-    abstract class Korisnik
+    abstract public class Korisnik
     {
         private String username;
         private String password;
