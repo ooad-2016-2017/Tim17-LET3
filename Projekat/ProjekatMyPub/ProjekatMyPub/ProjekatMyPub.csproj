@@ -99,7 +99,11 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Korisnik.cs" />
+<<<<<<< HEAD
     <Compile Include="Model\Zaposlenik.cs" />
+=======
+    <Compile Include="Model\Menadzer.cs" />
+>>>>>>> 6caee9705d48c53177b61c5ec401b61da8fd331d
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\KorisnikJukebox.xaml.cs">
       <DependentUpon>KorisnikJukebox.xaml</DependentUpon>
