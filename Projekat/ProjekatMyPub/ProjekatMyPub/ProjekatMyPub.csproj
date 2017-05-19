@@ -95,11 +95,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataSource\DataSource.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Korisnik.cs" />
-    <Compile Include="Model\Stol.cs" />
     <Compile Include="Model\Zaposlenik.cs" />
     <Compile Include="Model\Menadzer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
