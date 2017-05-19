@@ -31,7 +31,7 @@ namespace ProjekatMyPub.DataSource
                 if(p.Id == id)
                 {
                     return p;
-                }
+                }---
             }
 
             var dialog = new MessageDialog("Pogresno korisnicko ime/sifra!", "Neuspjesna prijava");
