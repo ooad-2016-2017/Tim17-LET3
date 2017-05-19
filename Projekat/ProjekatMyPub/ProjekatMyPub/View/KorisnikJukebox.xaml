@@ -22,7 +22,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Button Name="MusterijaJukeboxHamburger" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="36" Click="PrikaziMeni_Click" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Height="58"/>
+        <Button Name="MusterijaJukeboxHamburger" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="36" Click="PrikaziMeni_Click" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlockDobrodosli" Grid.Column="0" HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Dobrodosli! " VerticalAlignment="Top" FontSize="20" Height="27" Width="116"/>
         <TextBlock x:Name="textBlockOdaberiPjesmu" Grid.Column="0" HorizontalAlignment="Left" Margin="10,8,0,3" Grid.Row="2" TextWrapping="Wrap" Text="Odaberite pjesmu: " VerticalAlignment="Top" FontSize="20" Height="26" Width="183"/>
         <TextBlock x:Name="textBlockOdabranePjesme" Grid.Column="1" HorizontalAlignment="Left" Margin="10,8,0,0" Grid.Row="2" TextWrapping="WrapWholeWords" Text="Pjesme za koje ste glasali: " VerticalAlignment="Top" FontSize="20" Height="56" Width="170"/>
