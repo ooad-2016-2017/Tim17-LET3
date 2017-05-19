@@ -18,27 +18,126 @@ namespace ProjekatMyPub.Model
         private Decimal plata;
 
         public Zaposlenik(String username, String password, String email, String ime, String prezime, DateTime datumRodjenja, String adresa, String telefon, Decimal koeficijent)
-            : base(username, password, email)
+           : base(username, password, email)
         {
             Ime = ime;
             Prezime = prezime;
             DatumRodjena = datumRodjenja;
             Adresa = adresa;
             Telefon = telefon;
-            Koeficjent = koeficjent;
+            Koeficjent = Koeficjent;
             Plata = Koeficjent * BaznaPlata;
 
         }
 
+        public string Ime
+        {
+            get
+            {
+                return ime;
+            }
 
-        public String Ime { get => ime; set => ime = value; }
-        public String Prezime { get => prezime; set => prezime = value; }
-        public DateTime DatumRodjena { get => datumRodjena; set => datumRodjena = value; }
-        public String Adresa { get => adresa; set => adresa = value; }
-        public String Telefon { get => telefon; set => telefon = value; }
-        public Decimal BaznaPlata { get => baznaPlata; set => baznaPlata = value; }
-        public Decimal Koeficjent { get => koeficjent; set => koeficjent = value; }
-        public Decimal Plata { get => plata; set => plata = value; }
+            set
+            {
+                ime = value;
+            }
+        }
+
+        public string Prezime
+        {
+            get
+            {
+                return prezime;
+            }
+
+            set
+            {
+                prezime = value;
+            }
+        }
+
+        public DateTime DatumRodjena
+        {
+            get
+            {
+                return datumRodjena;
+            }
+
+            set
+            {
+                datumRodjena = value;
+            }
+        }
+
+        public string Adresa
+        {
+            get
+            {
+                return adresa;
+            }
+
+            set
+            {
+                adresa = value;
+            }
+        }
+
+        public string Telefon
+        {
+            get
+            {
+                return telefon;
+            }
+
+            set
+            {
+                telefon = value;
+            }
+        }
+
+        public decimal BaznaPlata
+        {
+            get
+            {
+                return baznaPlata;
+            }
+
+            set
+            {
+                baznaPlata = value;
+            }
+        }
+
+        public decimal Koeficjent
+        {
+            get
+            {
+                return koeficjent;
+            }
+
+            set
+            {
+                koeficjent = value;
+            }
+        }
+
+        public decimal Plata
+        {
+            get
+            {
+                return plata;
+            }
+
+            set
+            {
+                plata = value;
+            }
+        }
+
+
+       
+
+
     }
 
 
