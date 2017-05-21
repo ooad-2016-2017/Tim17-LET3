@@ -11,14 +11,14 @@ namespace ProjekatMyPub.Model
         private String naziv;
         private List<Pjesma> pjesme;
 
-
         public Playlista(String naziv, List<Pjesma> pjesme)
         {
             Naziv = naziv;
-            Pjesme = new List<Pjesma>();
+            Pjesme = pjesme;
         }
-    
+
         public string Naziv { get => naziv; set => naziv = value; }
         public List<Pjesma> Pjesme { get => pjesme; set => pjesme = value; }
+  
     }
 }
