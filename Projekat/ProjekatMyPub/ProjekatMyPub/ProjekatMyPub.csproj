@@ -101,6 +101,8 @@
     </Compile>
     <Compile Include="Model\Korisnik.cs" />
     <Compile Include="Model\Musterija.cs" />
+    <Compile Include="Model\Pjesma.cs" />
+    <Compile Include="Model\Playlista.cs" />
     <Compile Include="Model\Stol.cs" />
     <Compile Include="Model\Zaposlenik.cs" />
     <Compile Include="Model\Menadzer.cs" />
