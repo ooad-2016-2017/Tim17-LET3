@@ -9,7 +9,7 @@ namespace ProjekatMyPub.Model
    public class Playlista
     {
         private String naziv;
-        private List<Pjesma> pjesme;
+        private List<Pjesma> pjesme = new List<Pjesma>();
 
         public Playlista(String naziv, List<Pjesma> pjesme)
         {
