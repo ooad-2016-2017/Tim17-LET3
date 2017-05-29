@@ -40,6 +40,19 @@ namespace ProjekatMyPub.DataSource
             return null;
         }
 
+        public static Korisnik DajKorisnikaLogIn(String username, String password)
+        {
+            foreach(Korisnik p in korisnici)
+            {
+                if(p.Password.Equals(password) && p.Username.Equals(username))
+                {
+                    return p;
+                }
+            }
+
+            return null;
+        }
+
 
               private static List<Stol> stolovi = new List<Stol>()
         {

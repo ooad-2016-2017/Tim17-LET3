@@ -27,6 +27,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
+        <!--
         <Button Name="ZaposlenikStoloviHamburger" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="36" Click="PrikaziMeni_Click" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Height="40"/>
         <TextBlock x:Name="textBlockDobrodosli" Grid.Column="0" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Dobrodosli! " VerticalAlignment="Top" FontSize="20" Height="27" Width="116"/>
         <TextBlock x:Name="textBlockMusterijaStolovi1" HorizontalAlignment="Left" Margin="1,10,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Mapa stolova:" VerticalAlignment="Top" FontSize="20" Width="125" Height="27"/>
@@ -54,6 +55,6 @@
         <Button x:Name="MusterijaStol43" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" Width="50" MinHeight="50" MinWidth="50"  Click="Stol15_Click" Background="#FF632305" Margin="30,2,43,2"/>
         <Button x:Name="MusterijaStol44" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" Width="50" MinHeight="50" MinWidth="50"  Click="Stol16_Click" Background="#FF632305" Margin="30,2,43,2"/>
         <Button x:Name="buttonTraziDatum" Content="OK" Grid.Column="4" HorizontalAlignment="Left" Margin="0,2,0,0" Grid.Row="4" VerticalAlignment="Top" Width="130" FontSize="20" Height="33"/>
-
+        -->
     </Grid>
 </Page>

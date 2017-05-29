@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjekatMyPub.Model;
+using ProjekatMyPub.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +24,47 @@ namespace ProjekatMyPub.View
     /// </summary>
     public sealed partial class MenadzerZaposlenik : Page
     {
+        private Korisnik korisnik;
         public MenadzerZaposlenik()
         {
             this.InitializeComponent();
+           
+            String Zaposlenici = "Zaposlenici";
+            String Narudzba = "Narudzba";
+            MeniStavkeListView.Items.Add(Zaposlenici);
+            MeniStavkeListView.Items.Add(Narudzba);
+        }
+
+        private void PrikaziMeni_Click(object sender, RoutedEventArgs e)
+        {
+            MojSplitView.IsPaneOpen = !MojSplitView.IsPaneOpen;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            korisnik = null;
+
+            if (e.Parameter != null)
+            {
+                korisnik = (Korisnik)e.Parameter;
+            }
+
+            ViewModel1 helper = new ViewModel1();
+            helper = ViewModel1.SaPrijavljenog(korisnik);
+
+            textBlockMenadzerZaposlenikIme.Text = "Dobrodosli " + helper.ImePrezimeMenadzera;
+
+        }
+
+        private void MeniStavkeListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            String kliknuta = e.AddedItems[0].ToString();
+            if(kliknuta.Equals("Narudzba"))
+            {
+                this.Frame.Navigate(typeof(MenadzerNarudzba), korisnik);
+            }
+            
         }
     }
 }
