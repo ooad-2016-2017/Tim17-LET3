@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -28,7 +29,8 @@ namespace ProjekatMyPub.View
         public MenadzerZaposlenik()
         {
             this.InitializeComponent();
-           
+            DataContext = new ViewModel1();
+            NavigationCacheMode = NavigationCacheMode.Required;
             String Zaposlenici = "Zaposlenici";
             String Narudzba = "Narudzba";
             MeniStavkeListView.Items.Add(Zaposlenici);
@@ -42,6 +44,9 @@ namespace ProjekatMyPub.View
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            var currentView = SystemNavigationManager.GetForCurrentView();
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+            /*
             base.OnNavigatedTo(e);
             korisnik = null;
 
@@ -54,6 +59,7 @@ namespace ProjekatMyPub.View
             helper = ViewModel1.SaPrijavljenog(korisnik);
 
             textBlockMenadzerZaposlenikIme.Text = "Dobrodosli " + helper.ImePrezimeMenadzera;
+            */
 
         }
 
@@ -66,5 +72,7 @@ namespace ProjekatMyPub.View
             }
             
         }
+
+        
     }
 }

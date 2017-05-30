@@ -11,7 +11,7 @@ namespace ProjekatMyPub.DataSource
     public class DataSource
     {
 
-        private static List<Korisnik> korisnici = new List<Korisnik>()
+        public static List<Korisnik> korisnici = new List<Korisnik>()
         {
             new Menadzer("tvidovic1", "password", "tvidovic1@etf.unsa.ba", "Tin", "Vidovic", new DateTime(1996, 8, 6), "Splitska 10", "062/106-016", 2.5M),
             new Zaposlenik("lhasanagic1", "password", "lhasanagic1@etf.unsa.ba", "Lamija", "Hasangic", new DateTime(1996, 4, 9), "Jukiceva 11", "062/410-222", 3M),
@@ -138,6 +138,11 @@ namespace ProjekatMyPub.DataSource
             return null;
         }
 
+        public static DataSource dajDS()
+        {
+            DataSource ds = new DataSource();
+            return ds;
+        }
    
         public DataSource()
         {
