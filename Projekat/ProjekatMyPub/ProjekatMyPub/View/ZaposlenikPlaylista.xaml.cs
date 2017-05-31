@@ -25,6 +25,10 @@ namespace ProjekatMyPub.View
         public ZaposlenikPlaylista()
         {
             this.InitializeComponent();
+            String Stolovi = "Stolovi";
+            String Playliste = "Playliste";
+            MeniStavkeListView.Items.Add(Stolovi);
+            MeniStavkeListView.Items.Add(Playliste);
         }
     }
 }
