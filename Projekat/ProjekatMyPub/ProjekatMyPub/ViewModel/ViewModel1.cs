@@ -13,13 +13,25 @@ namespace ProjekatMyPub.ViewModel
     public class ViewModel1
     {
 
-        public List<Zaposlenik> zaposlenici = new List<Zaposlenik>();
+        private List<Zaposlenik> zaposlenici = new List<Zaposlenik>();
         //private Zaposlenik zaposlenik;
         public INavigationService navigationService { get; set; }
         public ICommand DugmeAzuriraj { get; set; }
         public ICommand DugmeObrisi { get; set; }
         public ICommand DugmeDodaj { get; set; }
-        public List<Zaposlenik> Zaposlenici { get => zaposlenici; set => zaposlenici = value; }
+
+        public List<Zaposlenik> Zaposlenici
+        {
+            get
+            {
+                return zaposlenici;
+            }
+
+            set
+            {
+                zaposlenici = value;
+            }
+        }
 
         public ViewModel1()
         {

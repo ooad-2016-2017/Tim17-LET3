@@ -16,7 +16,17 @@ namespace ProjekatMyPub.Model
             Vip = vip;
         }
 
-        public Boolean Vip { get => vip; set => vip = value; }
-    
+        public bool Vip
+        {
+            get
+            {
+                return vip;
+            }
+
+            set
+            {
+                vip = value;
+            }
+        }
     }
 }

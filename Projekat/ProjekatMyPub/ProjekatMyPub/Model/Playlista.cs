@@ -17,8 +17,30 @@ namespace ProjekatMyPub.Model
             Pjesme = pjesme;
         }
 
-        public string Naziv { get => naziv; set => naziv = value; }
-        public List<Pjesma> Pjesme { get => pjesme; set => pjesme = value; }
-  
+        public string Naziv
+        {
+            get
+            {
+                return naziv;
+            }
+
+            set
+            {
+                naziv = value;
+            }
+        }
+
+        public List<Pjesma> Pjesme
+        {
+            get
+            {
+                return pjesme;
+            }
+
+            set
+            {
+                pjesme = value;
+            }
+        }
     }
 }
