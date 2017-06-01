@@ -55,7 +55,7 @@
         <TextBox Text="{Binding Path=Zaposleni.Username, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="7" Grid.Column="1" MaxWidth="300" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
         <TextBox Text="{Binding Path=Zaposleni.Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="8" Grid.Column="1" MaxWidth="300" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
 
-        <Button HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="9" Grid.Column="0" Content="Dodaj" Command="{Binding Dodaj}"/>
+        <Button HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="9" Grid.Column="0" Content="Dodaj" Command="{Binding Path=Dodaj}"/>
 
     </Grid>
 </Page>

@@ -37,7 +37,7 @@ namespace ProjekatMyPub.View
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            DataContext = (DodajZaposlenikaViewModel)e.Parameter;
+            DataContext = (DodajZaposlenikaViewModel) e.Parameter;
         }
 
         private void ThisPage_BackRequested(object sender, BackRequestedEventArgs e)

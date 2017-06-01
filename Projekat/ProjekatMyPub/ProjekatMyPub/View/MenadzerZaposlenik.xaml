@@ -22,9 +22,9 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="{x:Bind Id}" HorizontalAlignment="Center" Grid.Column="0"></TextBlock>
-                <TextBlock Text="{x:Bind Ime}" HorizontalAlignment="Center" Grid.Column="1"></TextBlock>
-                <TextBlock Text="{x:Bind Prezime}" HorizontalAlignment="Center" Grid.Column="2"></TextBlock>
+                <TextBlock Text="{x:Bind Id}" HorizontalAlignment="Left" Grid.Column="0" ></TextBlock>
+                <TextBlock Text="{x:Bind Ime}" HorizontalAlignment="Left" Grid.Column="1"></TextBlock>
+                <TextBlock Text="{x:Bind Prezime}" HorizontalAlignment="Left" Grid.Column="2"></TextBlock>
             </Grid>
         </DataTemplate>
     </Page.Resources>
@@ -54,6 +54,7 @@
             Grid.Row="1"
             IsItemClickEnabled="true"
             SelectionChanged="MeniStavkeListView_SelectionChanged" Width="101"
+            ItemsSource="{Binding StavkeMenija}"
             >
 
                 </ListView>
@@ -62,8 +63,10 @@
 
         </SplitView>
 
-        <TextBlock x:Name="textBlockMenadzerZaposlenikIme" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="0" Grid.Column="1" Width="244" TextWrapping="Wrap"  VerticalAlignment="Top" FontSize="20" Text="{Binding ImePrezimeMenadzera}" Grid.ColumnSpan="3" />
-        <ListView x:Name="listViewMenadzerZaposlenik" ItemTemplate="{StaticResource ZaposleniciListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Zaposlenici}"  HorizontalAlignment="Stretch"  Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch"  Margin="10,5,10,0"  Grid.RowSpan="2" Grid.ColumnSpan="3" >
+        <TextBlock  HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="0" Grid.Column="1"  TextWrapping="Wrap"  VerticalAlignment="Top"  Text="Dobrodošli " />
+        <TextBlock  HorizontalAlignment="Left" Margin="5,10,0,0" Grid.Row="0" Grid.Column="2"  TextWrapping="Wrap"  VerticalAlignment="Top"  Text="{Binding KorisnikImePrezime}" />
+
+        <ListView x:Name="listViewMenadzerZaposlenik" ItemTemplate="{StaticResource ZaposleniciListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Zaposlenici, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch"  Margin="0,5,0,0"  Grid.RowSpan="2" Grid.ColumnSpan="3" >
             <ListView.Template>
                 <ControlTemplate>
                     <Grid>
@@ -77,9 +80,9 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock HorizontalAlignment="Center" Grid.Column="0">Id</TextBlock>
-                            <TextBlock HorizontalAlignment="Center" Grid.Column="1">Ime</TextBlock>
-                            <TextBlock HorizontalAlignment="Center" Grid.Column="2">Prezime</TextBlock>
+                            <TextBlock HorizontalAlignment="Left" Grid.Column="0">Id</TextBlock>
+                            <TextBlock HorizontalAlignment="Left" Grid.Column="1">Ime</TextBlock>
+                            <TextBlock HorizontalAlignment="Left" Grid.Column="2">Prezime</TextBlock>
 
                         </Grid>
                         <ItemsPresenter Grid.Row="1"></ItemsPresenter>
@@ -93,13 +96,11 @@
             </ListView.ItemContainerStyle>
 
         </ListView>
-        <Button Content="Azuriraj" Grid.Row ="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,10" Width ="Auto" Command="{Binding DugmeAzuriraj}"/>
-        <Button Content="Dodaj" Grid.Column="2"  Grid.Row="6" VerticalAlignment="Center" Width ="Auto" HorizontalAlignment="Center" Margin="0,0,0,10" MaxWidth="300" Command="{Binding DugmeDodaj}"/>
-        <Button Content="Obrisi" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Margin="0,0,0,10" Width ="Auto" Command="{Binding DugmeObrisi}"/>
+        <Button Content="Azuriraj" Grid.Row ="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,0,10" Width ="Auto" Command="{Binding DugmeAzuriraj}"/>
+        <Button Content="Dodaj" Grid.Column="2"  Grid.Row="6" VerticalAlignment="Center" Width ="Auto" HorizontalAlignment="Center" Margin="5,5,0,10" MaxWidth="300" Command="{Binding DugmeDodaj}"/>
+        <Button Content="Obrisi" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Margin="5,5,0,10" Width ="Auto" Command="{Binding DugmeObrisi}"/>
 
 
     </Grid>
-
-
 
 </Page>

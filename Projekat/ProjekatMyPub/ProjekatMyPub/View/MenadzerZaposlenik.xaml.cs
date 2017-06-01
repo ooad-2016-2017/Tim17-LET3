@@ -29,14 +29,9 @@ namespace ProjekatMyPub.View
         public MenadzerZaposlenik()
         {
             this.InitializeComponent();
-            DataContext = new ViewModel1();
-            
-            String Zaposlenici = "Zaposlenici";
-            String Narudzba = "Narudzba";
-            MeniStavkeListView.Items.Add(Zaposlenici);
-            MeniStavkeListView.Items.Add(Narudzba);
 
             NavigationCacheMode = NavigationCacheMode.Required;
+
         }
 
         private void PrikaziMeni_Click(object sender, RoutedEventArgs e)
@@ -46,23 +41,13 @@ namespace ProjekatMyPub.View
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+
+            DataContext = (ViewModel1)e.Parameter;
+
             var currentView = SystemNavigationManager.GetForCurrentView();
+
             currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
-            /*
-            base.OnNavigatedTo(e);
-            korisnik = null;
-
-            if (e.Parameter != null)
-            {
-                korisnik = (Korisnik)e.Parameter;
-            }
-
-            ViewModel1 helper = new ViewModel1();
-            helper = ViewModel1.SaPrijavljenog(korisnik);
-
-            textBlockMenadzerZaposlenikIme.Text = "Dobrodosli " + helper.ImePrezimeMenadzera;
-            */
-
+            
         }
 
         private void MeniStavkeListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
