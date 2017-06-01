@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,10 +26,37 @@ namespace ProjekatMyPub.View
         public ZaposlenikPlaylista()
         {
             this.InitializeComponent();
+           // DataContext = new ViewModel2();
+
             String Stolovi = "Stolovi";
             String Playliste = "Playliste";
-            //MeniStavkeListView.Items.Add(Stolovi);
-            //MeniStavkeListView.Items.Add(Playliste);
+            MeniZaposlenikListView.Items.Add(Stolovi);
+            MeniZaposlenikListView.Items.Add(Playliste);
+
+            NavigationCacheMode = NavigationCacheMode.Required;
         }
+
+        private void ZaposlenikPlaylistaHamburger_Click(object sender, RoutedEventArgs e)
+        {
+            ZaposlenikSplitView.IsPaneOpen = !ZaposlenikSplitView.IsPaneOpen;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var currentView = SystemNavigationManager.GetForCurrentView();
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+        }
+
+    
+        private void MeniZaposlenikListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            String kliknuta = e.AddedItems[0].ToString();
+            if (kliknuta.Equals("Stolovi"))
+            {
+                this.Frame.Navigate(typeof(ZaposlenikStolovi));
+            }
+
+        }
+
     }
 }
