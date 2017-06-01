@@ -11,7 +11,7 @@
 
     <Page.Resources>
 
-        <DataTemplate x:Key="ZaposleniciListTemplate" x:DataType="models:Zaposlenik" >
+        <DataTemplate x:Key="ZaposleniciListTemplate" x:DataType="models:Zaposlenik">
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -34,15 +34,12 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" MaxWidth="300"/>
+            <ColumnDefinition Width="Auto" MaxWidth="300"/>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition x:Name="kolona4" Width="Auto" />
@@ -50,7 +47,7 @@
         </Grid.ColumnDefinitions>
 
         <Button Name="MenadzerZaposlenikHamburger" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="36" Click="PrikaziMeni_Click" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" />
-        <SplitView Name="MojSplitView" Grid.Row="1" DisplayMode="CompactOverlay" OpenPaneLength="100" CompactPaneLength="0" HorizontalAlignment="Left">
+        <SplitView Name="MojSplitView" Grid.Row="1" DisplayMode="CompactOverlay" OpenPaneLength="100" CompactPaneLength="0" HorizontalAlignment="Left" Margin="0,0,0,10" Grid.RowSpan="2">
             <SplitView.Pane>
                 <ListView
             x:Name="MeniStavkeListView"
@@ -65,8 +62,8 @@
 
         </SplitView>
 
-        <TextBlock x:Name="textBlockMenadzerZaposlenikIme" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" Grid.Column="1" Width="244" TextWrapping="Wrap"  VerticalAlignment="Top" FontSize="20" Text="{Binding ImePrezimeMenadzera}" Grid.ColumnSpan="3" />
-        <ListView x:Name="listViewMenadzerZaposlenik" ItemTemplate="{StaticResource ZaposleniciListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Zaposlenici}"  HorizontalAlignment="Stretch"  Grid.Row="2" Grid.Column="0" VerticalAlignment="Stretch"  Margin="10,5,10,0"  Grid.RowSpan="4" >
+        <TextBlock x:Name="textBlockMenadzerZaposlenikIme" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="0" Grid.Column="1" Width="244" TextWrapping="Wrap"  VerticalAlignment="Top" FontSize="20" Text="{Binding ImePrezimeMenadzera}" Grid.ColumnSpan="3" />
+        <ListView x:Name="listViewMenadzerZaposlenik" ItemTemplate="{StaticResource ZaposleniciListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Zaposlenici}"  HorizontalAlignment="Stretch"  Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch"  Margin="10,5,10,0"  Grid.RowSpan="2" Grid.ColumnSpan="3" >
             <ListView.Template>
                 <ControlTemplate>
                     <Grid>
@@ -96,17 +93,9 @@
             </ListView.ItemContainerStyle>
 
         </ListView>
-        <TextBlock x:Name="labelaMenadzerZaposlenikIme" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="10,30,0,0" TextWrapping="Wrap" Text="Ime:" VerticalAlignment="Top" Foreground ="Black"  FontFamily="Verdana" FontSize="20" Height="24" Width="Auto"/>
-        <TextBlock x:Name="labelaMenadzerZaposlenikPrezime" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="10,30,0,0" TextWrapping="Wrap" Text="Prezime:" VerticalAlignment="Top" Foreground ="Black"  FontFamily="Verdana" FontSize="20" Height="24" Width="Auto" />
-        <TextBlock x:Name="labelaMenadzerZaposlenikEmail" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Margin="10,30,0,0" TextWrapping="Wrap" Text="E-mail:" VerticalAlignment="Top" Foreground ="Black"  FontFamily="Verdana" FontSize="20" Height="24" Width="Auto" />
-        <TextBlock x:Name="labelaMenadzerZaposlenikPlata" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" Margin="10,30,0,0" TextWrapping="Wrap" Text="Plata:" VerticalAlignment="Top" Foreground ="Black"  FontFamily="Verdana" FontSize="20" Height="24" Width="Auto" />
-        <TextBox x:Name="textBoxMenadzerZaposlenikIme" VerticalAlignment="Top" Grid.Row ="2"   Grid.Column="3"  Width="{Binding ElementName=kolona4,Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,20,0,0" Text="" MaxWidth="300" Height="40"/>
-        <TextBox x:Name="textBoxMenadzerZaposlenikPrezime" VerticalAlignment="Top" Grid.Row ="3"  Grid.Column="3"  Width="{Binding ElementName=kolona4,Path=ActualWidth}" HorizontalAlignment="Left" Margin="0 ,20,0,0" Text="" MaxWidth="300" Height="40"/>
-        <TextBox x:Name="textBoxMenadzerZaposlenikEmail" VerticalAlignment="Top" Grid.Row ="4"   Grid.Column="3"  Width="{Binding ElementName=kolona4,Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,20,0,0" Text="" MaxWidth="300" Height="40"/>
-        <TextBox x:Name="textBoxMenadzerZaposlenikPlata"  VerticalAlignment="Top" Grid.Row ="5"  Grid.Column="3"  Width="{Binding ElementName=kolona4,Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,20,0,0" Text="" MaxWidth="300" Height="40"/>
-        <Button Content="Azuriraj" Grid.Row ="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0" Width ="Auto" Command="{Binding DugmeAzuriraj}"/>
-        <Button Content="Dodaj" Grid.Column="2"  Grid.Row="6" VerticalAlignment="Top" Width="{Binding ElementName=kolona4,Path=ActualWidth}" HorizontalAlignment="Center" Margin="0,30,0,0" MaxWidth="300" Command="{Binding DugmeDodaj}"/>
-        <Button Content="Obrisi" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Top" Margin="10,30,10,0" Width ="Auto" Command="{Binding DugmeObrisi}"/>
+        <Button Content="Azuriraj" Grid.Row ="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,10" Width ="Auto" Command="{Binding DugmeAzuriraj}"/>
+        <Button Content="Dodaj" Grid.Column="2"  Grid.Row="6" VerticalAlignment="Center" Width ="Auto" HorizontalAlignment="Center" Margin="0,0,0,10" MaxWidth="300" Command="{Binding DugmeDodaj}"/>
+        <Button Content="Obrisi" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Margin="0,0,0,10" Width ="Auto" Command="{Binding DugmeObrisi}"/>
 
 
     </Grid>

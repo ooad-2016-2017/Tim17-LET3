@@ -27,8 +27,8 @@ namespace ProjekatMyPub.View
             this.InitializeComponent();
             String Stolovi = "Stolovi";
             String Playliste = "Playliste";
-            MeniStavkeListView.Items.Add(Stolovi);
-            MeniStavkeListView.Items.Add(Playliste);
+            //MeniStavkeListView.Items.Add(Stolovi);
+            //MeniStavkeListView.Items.Add(Playliste);
         }
     }
 }

@@ -24,6 +24,7 @@ namespace ProjekatMyPub.Model
             zadnjiId++;
         }
 
+        public Korisnik() { }
         public string Username
         {
             get

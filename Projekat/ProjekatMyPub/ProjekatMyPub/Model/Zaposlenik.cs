@@ -10,8 +10,9 @@ namespace ProjekatMyPub.Model
     {
         private String ime;
         private String prezime;
-        private DateTime datumRodjena;
+        private DateTime datumRodjenja;
         private String adresa;
+        private String email;
         private String telefon;
         private Decimal baznaPlata = 1000M;
         private Decimal koeficjent;
@@ -22,13 +23,16 @@ namespace ProjekatMyPub.Model
         {
             Ime = ime;
             Prezime = prezime;
-            DatumRodjena = datumRodjenja;
+            DatumRodjenja = datumRodjenja;
             Adresa = adresa;
             Telefon = telefon;
             Koeficjent = Koeficjent;
             Plata = Koeficjent * BaznaPlata;
+            Email = email;
 
         }
+
+        public Zaposlenik():  base() { DatumRodjenja = new DateTime(1960, 1, 1); }
 
         public string Ime
         {
@@ -56,16 +60,16 @@ namespace ProjekatMyPub.Model
             }
         }
 
-        public DateTime DatumRodjena
+        public DateTime DatumRodjenja
         {
             get
             {
-                return datumRodjena;
+                return datumRodjenja;
             }
 
             set
             {
-                datumRodjena = value;
+                datumRodjenja = value;
             }
         }
 
@@ -134,10 +138,18 @@ namespace ProjekatMyPub.Model
             }
         }
 
+        public string Email
+        {
+            get
+            {
+                return email;
+            }
 
-       
-
-
+            set
+            {
+                email = value;
+            }
+        }
     }
 
 

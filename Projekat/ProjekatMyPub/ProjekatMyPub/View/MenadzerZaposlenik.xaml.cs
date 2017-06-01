@@ -30,11 +30,13 @@ namespace ProjekatMyPub.View
         {
             this.InitializeComponent();
             DataContext = new ViewModel1();
-            NavigationCacheMode = NavigationCacheMode.Required;
+            
             String Zaposlenici = "Zaposlenici";
             String Narudzba = "Narudzba";
             MeniStavkeListView.Items.Add(Zaposlenici);
             MeniStavkeListView.Items.Add(Narudzba);
+
+            NavigationCacheMode = NavigationCacheMode.Required;
         }
 
         private void PrikaziMeni_Click(object sender, RoutedEventArgs e)

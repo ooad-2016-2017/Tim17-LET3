@@ -7,18 +7,20 @@ using System.Threading.Tasks;
 using ProjekatMyPub.DataSource;
 using System.Windows.Input;
 using ProjekatMyPub.Helper;
+using ProjekatMyPub.View;
 
 namespace ProjekatMyPub.ViewModel
 {
     public class ViewModel1
     {
 
-        private List<Zaposlenik> zaposlenici = new List<Zaposlenik>();
+        public List<Zaposlenik> zaposlenici;
         //private Zaposlenik zaposlenik;
         public INavigationService navigationService { get; set; }
         public ICommand DugmeAzuriraj { get; set; }
         public ICommand DugmeObrisi { get; set; }
         public ICommand DugmeDodaj { get; set; }
+        
 
         public List<Zaposlenik> Zaposlenici
         {
@@ -33,8 +35,10 @@ namespace ProjekatMyPub.ViewModel
             }
         }
 
+
         public ViewModel1()
         {
+            zaposlenici = new List<Zaposlenik>();
             List<Korisnik> korisnici = DataSource.DataSource.DajSveKorisnike();
 
             foreach (Korisnik p in korisnici)
@@ -47,19 +51,28 @@ namespace ProjekatMyPub.ViewModel
             navigationService = new NavigationService();
             //DugmeAzuriraj = new RelayCommand<object>(f1);
             DugmeObrisi = new RelayCommand<object>(obrisiZaposlenika);
-            //DugmeDodaj = new RelayCommand<object>(f3);
+            DugmeDodaj = new RelayCommand<object>(dodajZaposlenika);
+            
+            
 
         }
-        //private String prezimeMenadzera;
-        //private String imePrezimeMenadzera;
+
+       
+
 
         public void obrisiZaposlenika(object parameter)
         {
            
             
         }
-        //public Zaposlenik Zaposlenik { get => zaposlenik; set => zaposlenik = value; }
-        
+
+        public void dodajZaposlenika(object parameter)
+        {
+            navigationService.Navigate(typeof(DodajZaposlenika), new DodajZaposlenikaViewModel(this));
+            
+        }
+
+    
 
         /*
         public string ImeMenadzera { get => imeMenadzera; set => imeMenadzera = value; }
