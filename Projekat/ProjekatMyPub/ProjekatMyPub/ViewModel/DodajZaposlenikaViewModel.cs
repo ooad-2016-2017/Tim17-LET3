@@ -10,22 +10,9 @@ namespace ProjekatMyPub.ViewModel
 {
     public class DodajZaposlenikaViewModel
     {
-        public ViewModel1 parent;
+        public ViewModel1 Parent { get; set; }
         public Zaposlenik zaposleni;
         public ICommand Dodaj { get; set; }
-
-        public ViewModel1 Parent
-        {
-            get
-            {
-                return parent;
-            }
-
-            set
-            {
-                parent = value;
-            }
-        }
 
         public Zaposlenik Zaposleni
         {
@@ -42,14 +29,15 @@ namespace ProjekatMyPub.ViewModel
 
         public DodajZaposlenikaViewModel(ViewModel1 parent)
         {
-            Parent = parent;
-            zaposleni = new Zaposlenik();
+            this.Parent = parent;
+            Zaposleni = new Zaposlenik();
             Dodaj = new RelayCommand<object>(dodaj);
         }
 
         public void dodaj(object parametar)
         {
-            Parent.zaposlenici.Add(Zaposleni);
+            Parent.Zaposlenici.Add(Zaposleni);
+            
             Parent.navigationService.GoBack();
         }
     }

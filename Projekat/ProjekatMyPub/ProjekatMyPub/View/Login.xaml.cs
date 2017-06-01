@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using ProjekatMyPub.DataSource;
 using ProjekatMyPub.Model;
 using Windows.UI.Popups;
+using ProjekatMyPub.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -28,7 +29,7 @@ namespace ProjekatMyPub.View
         public Login()
         {
             this.InitializeComponent();
-            DataSource.DataSource init = new DataSource.DataSource();
+            DataContext = new ViewModel1();
         }
 
         private async void buttonNemateRacun_Click(object sender, RoutedEventArgs e)
@@ -38,23 +39,6 @@ namespace ProjekatMyPub.View
             
         }
 
-        private async void buttonLogIn_Click(object sender, RoutedEventArgs e)
-        {
-            String username = textBoxUsername.Text;
-            String password = passwordBoxLoginPassword.Password;
-
-            Korisnik uneseni = DataSource.DataSource.DajKorisnikaLogIn(username, password);
-
-            if (uneseni != null && uneseni is Menadzer)
-            {
-                this.Frame.Navigate(typeof(MenadzerZaposlenik), uneseni);
-            }
-            else
-            {
-                var dialog = new MessageDialog("Pogrešno korisničko ime/šifra!", "Neuspješnaprijava");
-
-                await dialog.ShowAsync();
-            }
-        }
+        
     }
 }
