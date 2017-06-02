@@ -159,10 +159,16 @@ namespace ProjekatMyPub.ViewModel
         private async void logIn(object sender)
         {
             Korisnik = DataSource.DataSource.DajKorisnikaLogIn(KorisnikUsername, KorisnikPassword);
-            KorisnikImePrezime = (Korisnik as Menadzer).Ime + " " + (Korisnik as Menadzer).Prezime;
+            
             if (Korisnik != null && Korisnik is Menadzer)
             {
+                KorisnikImePrezime = (Korisnik as Menadzer).Ime + " " + (Korisnik as Menadzer).Prezime;
                 navigationService.Navigate(typeof(MenadzerZaposlenik), this);
+            }
+            else if(Korisnik != null && Korisnik is Musterija)
+            {
+                KorisnikImePrezime = (Korisnik as Musterija).Username;
+                navigationService.Navigate(typeof(KorisnikPregledMenija), new ViewModel3(this));
             }
             else
             {

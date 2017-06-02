@@ -32,12 +32,13 @@ namespace ProjekatMyPub.View
             DataContext = new ViewModel1();
         }
 
+        /*
         private async void buttonNemateRacun_Click(object sender, RoutedEventArgs e)
         {
             
             this.Frame.Navigate(typeof(Registracija));
-            
-        }
+            }
+        */
 
         
     }

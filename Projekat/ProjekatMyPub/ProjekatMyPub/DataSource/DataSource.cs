@@ -16,7 +16,7 @@ namespace ProjekatMyPub.DataSource
             new Menadzer("tvidovic1", "password", "tvidovic1@etf.unsa.ba", "Tin", "Vidovic", new DateTime(1996, 8, 6), "Splitska 10", "062/106-016", 2.5M),
             new Zaposlenik("lhasanagic1", "password", "lhasanagic1@etf.unsa.ba", "Lamija", "Hasangic", new DateTime(1996, 4, 9), "Jukiceva 11", "062/410-222", 3M),
             new Zaposlenik("efazlagic1", "password", "efazlagic1@etf.unsa.ba", "Edna", "Fazlagic", new DateTime(1997,7,7), "Midhat Karic - Mitke", "060/321-1841", 3M ),
-            new Musterija("kera", "password", "kerah@gmail.com", false)
+            new Musterija("khadzibegovic1", "password", "kerah@gmail.com", false)
 
         };
 
@@ -138,12 +138,39 @@ namespace ProjekatMyPub.DataSource
             return null;
         }
 
+        private static List<Pice> pica = new List<Pice>()
+        {
+            new Pice("Coca Cola",3M,20,10,50),
+            new Pice("Karlovacko",3.5M,40,10,50),
+            new Pice("Paulaner",4M,70,10,50),
+            new Pice("Ožujsko",3M,30,10,50)
+        };
+
+        public static List<Pice> DajSvaPica()
+        {
+            return pica;
+        }
+
+        public static Pice DajPicePoID(Int32 id)
+        {
+            foreach (Pice p in pica)
+            {
+                if (p.Id == id)
+                {
+                    return p;
+                }
+            }
+            var dialog = new MessageDialog("Ne postoji pice s trazenim id", "Nepostojeci id");
+            return null;
+        }
+
         public static DataSource dajDS()
         {
             DataSource ds = new DataSource();
             return ds;
         }
-   
+
+        
         public DataSource()
         {
             Korisnik k1 = DajKorisnikaPoId(1);
@@ -158,6 +185,10 @@ namespace ProjekatMyPub.DataSource
             Pjesma p4 = DajPjesmuPoId(4);
             Playlista pl1 = DajPlaylistuPoNazivu("playlista1");
             Playlista pl2 = DajPlaylistuPoNazivu("playlista2");
+            Pice pice1 = DajPicePoID(1);
+            Pice pice2 = DajPicePoID(2);
+            Pice pice3 = DajPicePoID(3);
+            Pice pice4 = DajPicePoID(4);
         }
         
 

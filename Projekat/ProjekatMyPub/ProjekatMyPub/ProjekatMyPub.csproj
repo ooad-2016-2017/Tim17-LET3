@@ -102,6 +102,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Pice.cs" />
     <Compile Include="Model\Korisnik.cs" />
     <Compile Include="Model\Musterija.cs" />
     <Compile Include="Model\Pjesma.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="ViewModel\DodajZaposlenikaViewModel.cs" />
     <Compile Include="ViewModel\ViewModel1.cs" />
     <Compile Include="ViewModel\ViewModel2.cs" />
+    <Compile Include="ViewModel\ViewModel3.cs" />
     <Compile Include="View\DodajZaposlenika.xaml.cs">
       <DependentUpon>DodajZaposlenika.xaml</DependentUpon>
     </Compile>
