@@ -8,6 +8,120 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    
-    
+    <!--
+    <Page.Resources>
+
+        <DataTemplate x:Key="PicaListTemplate" x:DataType="models:Pice">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{x:Bind Naziv}" HorizontalAlignment="Left" Grid.Column="0" ></TextBlock>
+                <TextBlock Text="{x:Bind Cijena}" HorizontalAlignment="Left" Grid.Column="1"></TextBlock>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <Button Name="KorisnikMeniHamburger"  FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="36" Click="PrikaziMeni_Click" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top"/>
+        <SplitView Name="MojSplitView1" Grid.Row="1" DisplayMode="CompactOverlay" OpenPaneLength="100" CompactPaneLength="0" HorizontalAlignment="Left" Margin="0,0,0,10" Grid.RowSpan="3">
+            <SplitView.Pane>
+                <ListView
+            x:Name="MeniStavkeListView"
+            Grid.Row="1"
+            IsItemClickEnabled="true"
+            SelectionChanged="MeniStavkeListView_SelectionChanged" Width="101"
+            ItemsSource="{Binding StavkeMenija}"
+            >
+
+                </ListView>
+
+            </SplitView.Pane>
+
+        </SplitView>
+        <TextBlock x:Name="textBlockDobrodosli" Grid.Column="1" HorizontalAlignment="Left" Margin="0,7,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Dobrodosli! " VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock  Grid.Column="2" HorizontalAlignment="Left" Margin="0,7,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Path=ImePrezimeKorisnika}" VerticalAlignment="Top" FontSize="20" />
+
+        <ListView x:Name="listViewListaPica" ItemTemplate="{StaticResource PicaListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Path=Pica, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="2" Grid.Column="1" VerticalAlignment="Stretch"  Margin="0,5,0,0"  Grid.RowSpan="2" SelectionChanged="{Binding}" >
+            <ListView.Template>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock HorizontalAlignment="Left" Grid.Column="0">Naziv</TextBlock>
+                            <TextBlock HorizontalAlignment="Left" Grid.Column="1">Cijena</TextBlock>
+
+                        </Grid>
+                        <ItemsPresenter Grid.Row="1"></ItemsPresenter>
+                    </Grid>
+                </ControlTemplate>
+            </ListView.Template>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+
+        </ListView>
+
+
+        <ListView x:Name="listViewListaNarucenihPica" ItemTemplate="{StaticResource PicaListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Path=NarucenaPica, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="2" Grid.Column="2" VerticalAlignment="Stretch"  Margin="0,5,0,0"  Grid.RowSpan="2" >
+            <ListView.Template>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock HorizontalAlignment="Left" Grid.Column="0">Naziv</TextBlock>
+                            <TextBlock HorizontalAlignment="Left" Grid.Column="1">Cijena</TextBlock>
+
+                        </Grid>
+                        <ItemsPresenter Grid.Row="1"></ItemsPresenter>
+                    </Grid>
+                </ControlTemplate>
+            </ListView.Template>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+
+        </ListView>
+
+    </Grid>
+    -->
 </Page>
+
