@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjekatMyPub.ViewModel
 {
-    public class ViewModel2
+    class ViewModel2
     {
     }
 }

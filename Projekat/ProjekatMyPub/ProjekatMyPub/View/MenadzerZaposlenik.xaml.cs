@@ -1,5 +1,4 @@
-﻿using ProjekatMyPub.Model;
-using ProjekatMyPub.ViewModel;
+﻿using ProjekatMyPub.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,7 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace ProjekatMyPub.View
 {
@@ -25,13 +24,11 @@ namespace ProjekatMyPub.View
     /// </summary>
     public sealed partial class MenadzerZaposlenik : Page
     {
-        private Korisnik korisnik;
         public MenadzerZaposlenik()
         {
             this.InitializeComponent();
 
             NavigationCacheMode = NavigationCacheMode.Required;
-
         }
 
         private void PrikaziMeni_Click(object sender, RoutedEventArgs e)
@@ -47,19 +44,19 @@ namespace ProjekatMyPub.View
             var currentView = SystemNavigationManager.GetForCurrentView();
 
             currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
-            
+
         }
 
         private void MeniStavkeListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            /*
             String kliknuta = e.AddedItems[0].ToString();
-            if(kliknuta.Equals("Narudzba"))
+            if (kliknuta.Equals("Narudzba"))
             {
                 this.Frame.Navigate(typeof(MenadzerNarudzba), korisnik);
             }
-            
-        }
+            */
 
-        
+        }
     }
 }

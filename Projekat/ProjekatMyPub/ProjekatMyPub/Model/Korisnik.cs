@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace ProjekatMyPub.Model
 {
-
     abstract public class Korisnik
     {
         private String username;
@@ -24,7 +23,10 @@ namespace ProjekatMyPub.Model
             zadnjiId++;
         }
 
-        public Korisnik() { }
+        public Korisnik()
+        {
+            Id = zadnjiId++;
+        }
         public string Username
         {
             get
@@ -77,5 +79,4 @@ namespace ProjekatMyPub.Model
             }
         }
     }
-
 }

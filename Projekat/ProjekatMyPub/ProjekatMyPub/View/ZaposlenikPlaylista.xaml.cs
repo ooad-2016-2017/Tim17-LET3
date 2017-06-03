@@ -14,7 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace ProjekatMyPub.View
 {
@@ -26,28 +26,33 @@ namespace ProjekatMyPub.View
         public ZaposlenikPlaylista()
         {
             this.InitializeComponent();
-           // DataContext = new ViewModel2();
 
+
+            // DataContext = new ViewModel2();
+            /*
             String Stolovi = "Stolovi";
             String Playliste = "Playliste";
             MeniZaposlenikListView.Items.Add(Stolovi);
             MeniZaposlenikListView.Items.Add(Playliste);
 
             NavigationCacheMode = NavigationCacheMode.Required;
+            */
         }
 
+        
         private void ZaposlenikPlaylistaHamburger_Click(object sender, RoutedEventArgs e)
         {
             ZaposlenikSplitView.IsPaneOpen = !ZaposlenikSplitView.IsPaneOpen;
         }
 
+        
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             var currentView = SystemNavigationManager.GetForCurrentView();
             currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
         }
 
-    
+
         private void MeniZaposlenikListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             String kliknuta = e.AddedItems[0].ToString();
@@ -57,6 +62,6 @@ namespace ProjekatMyPub.View
             }
 
         }
-
+        
     }
 }

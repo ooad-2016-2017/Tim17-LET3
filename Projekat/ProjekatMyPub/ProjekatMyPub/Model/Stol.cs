@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ProjekatMyPub.Model
+{
+    public class Stol
     {
-        public class Stol
-        {
-            private Boolean daLiJeZauzet;
-            private Int32 brojStola;
-            private static Int32 zadnjiStol = 1;
+        private Boolean daLiJeZauzet;
+        private Int32 brojStola;
+        private static Int32 zadnjiStol = 1;
 
         public Stol(Boolean daLiJeZauzet)
         {
@@ -46,7 +46,6 @@ namespace ProjekatMyPub.Model
             }
         }
 
-       
-        }
-    }
 
+    }
+}

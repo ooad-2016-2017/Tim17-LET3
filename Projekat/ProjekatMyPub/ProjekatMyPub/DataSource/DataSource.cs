@@ -1,9 +1,9 @@
-﻿using System;
+﻿using ProjekatMyPub.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ProjekatMyPub.Model;
 using Windows.UI.Popups;
 
 namespace ProjekatMyPub.DataSource
@@ -42,9 +42,9 @@ namespace ProjekatMyPub.DataSource
 
         public static Korisnik DajKorisnikaLogIn(String username, String password)
         {
-            foreach(Korisnik p in korisnici)
+            foreach (Korisnik p in korisnici)
             {
-                if(p.Password.Equals(password) && p.Username.Equals(username))
+                if (p.Password.Equals(password) && p.Username.Equals(username))
                 {
                     return p;
                 }
@@ -54,7 +54,7 @@ namespace ProjekatMyPub.DataSource
         }
 
 
-              private static List<Stol> stolovi = new List<Stol>()
+        private static List<Stol> stolovi = new List<Stol>()
         {
            new Stol (false),
            new Stol(false),
@@ -115,7 +115,7 @@ namespace ProjekatMyPub.DataSource
         {
            new Playlista("playlista1",  pjesme),
            new Playlista("playlista2", new List<Pjesma>(){new Pjesma("pjesma5", 5), new Pjesma("pjesma6", 6)})
-         
+
         };
 
         public static List<Playlista> DajSvePlayliste()
@@ -170,7 +170,7 @@ namespace ProjekatMyPub.DataSource
             return ds;
         }
 
-        
+
         public DataSource()
         {
             Korisnik k1 = DajKorisnikaPoId(1);
@@ -190,7 +190,7 @@ namespace ProjekatMyPub.DataSource
             Pice pice3 = DajPicePoID(3);
             Pice pice4 = DajPicePoID(4);
         }
-        
+
 
     }
 }

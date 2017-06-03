@@ -97,4 +97,3 @@ public class RelayCommand<T> : ICommand
     }
     #endregion Protected Methods
 }
-

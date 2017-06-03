@@ -11,17 +11,88 @@ namespace ProjekatMyPub.Model
         private String naziv;
         private Decimal cijena;
         private Int32 kolicina;
-        private static Int32 zadnjiID=1;
+        private static Int32 zadnjiID = 1;
         private Int32 minimalnaKolicina;
         private Int32 kolicinaZaNabavku;
         private Int32 id;
 
-        public string Naziv { get => naziv; set => naziv = value; }
-        public decimal Cijena { get => cijena; set => cijena = value; }
-        public int Kolicina { get => kolicina; set => kolicina = value; }
-        public int MinimalnaKolicina { get => minimalnaKolicina; set => minimalnaKolicina = value; }
-        public int KolicinaZaNabavku { get => kolicinaZaNabavku; set => kolicinaZaNabavku = value; }
-        public int Id { get => id; set => id = value; }
+        public string Naziv
+        {
+            get
+            {
+                return naziv;
+            }
+
+            set
+            {
+                naziv = value;
+            }
+        }
+
+        public decimal Cijena
+        {
+            get
+            {
+                return cijena;
+            }
+
+            set
+            {
+                cijena = value;
+            }
+        }
+
+        public int Kolicina
+        {
+            get
+            {
+                return kolicina;
+            }
+
+            set
+            {
+                kolicina = value;
+            }
+        }
+
+        public int MinimalnaKolicina
+        {
+            get
+            {
+                return minimalnaKolicina;
+            }
+
+            set
+            {
+                minimalnaKolicina = value;
+            }
+        }
+
+        public int KolicinaZaNabavku
+        {
+            get
+            {
+                return kolicinaZaNabavku;
+            }
+
+            set
+            {
+                kolicinaZaNabavku = value;
+            }
+        }
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
 
         public Pice(String naziv, Decimal cijena, Int32 kolicina, Int32 minimalnaKolicina, Int32 kolicinaZaNabavku)
         {

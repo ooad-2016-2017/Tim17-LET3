@@ -1,36 +1,30 @@
-﻿using ProjekatMyPub.Model;
+﻿using ProjekatMyPub.Helper;
+using ProjekatMyPub.Model;
+using ProjekatMyPub.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ProjekatMyPub.DataSource;
 using System.Windows.Input;
-using ProjekatMyPub.Helper;
-using ProjekatMyPub.View;
-using Windows.UI.Xaml;
-using Windows.UI.Popups;
+using Windows.UI.Xaml.Controls;
 
 namespace ProjekatMyPub.ViewModel
 {
-    public class ViewModel1
+    class ViewModel1
     {
 
+        public LogInVM Parent { get; set; }
         public List<Zaposlenik> zaposlenici;
-        public String korisnikUsername;
-        public String korisnikPassword;
+        public Zaposlenik zaposleni;
         private String stavka1 = "Zaposlenici";
         private String stavka2 = "Narudzba";
         public List<String> stavkeMenija;
-        public Korisnik korisnik;
-        public String korisnikImePrezime;
-        //private Zaposlenik zaposlenik;
-        public INavigationService navigationService { get; set; }
         public ICommand DugmeAzuriraj { get; set; }
         public ICommand DugmeObrisi { get; set; }
         public ICommand DugmeDodaj { get; set; }
-        public ICommand LogIn_Click { get; set; }
-        
+        public ICommand DodajZaposlenikaDodaj { get; set; }
+        public INavigationService navigationService { get; set; }
 
         public List<Zaposlenik> Zaposlenici
         {
@@ -58,62 +52,23 @@ namespace ProjekatMyPub.ViewModel
             }
         }
 
-        public string KorisnikUsername
+        public Zaposlenik Zaposleni
         {
             get
             {
-                return korisnikUsername;
+                return zaposleni;
             }
 
             set
             {
-                korisnikUsername = value;
+                zaposleni = value;
             }
         }
 
-        public string KorisnikPassword
+        public ViewModel1(LogInVM parent)
         {
-            get
-            {
-                return korisnikPassword;
-            }
 
-            set
-            {
-                korisnikPassword = value;
-            }
-        }
-
-        public Korisnik Korisnik
-        {
-            get
-            {
-                return korisnik;
-            }
-
-            set
-            {
-                korisnik = value;
-            }
-        }
-
-        public string KorisnikImePrezime
-        {
-            get
-            {
-                return korisnikImePrezime;
-            }
-
-            set
-            {
-                korisnikImePrezime = value;
-            }
-        }
-
-   
-
-        public ViewModel1()
-        {
+            navigationService = new NavigationService();
             zaposlenici = new List<Zaposlenik>();
             List<Korisnik> korisnici = DataSource.DataSource.DajSveKorisnike();
 
@@ -127,75 +82,38 @@ namespace ProjekatMyPub.ViewModel
             StavkeMenija = new List<String>();
             StavkeMenija.Add(stavka1);
             StavkeMenija.Add(stavka2);
-            navigationService = new NavigationService();
+
+            Parent = parent;
+
+            Zaposleni = new Zaposlenik();
+            
             //DugmeAzuriraj = new RelayCommand<object>(f1);
             DugmeObrisi = new RelayCommand<object>(obrisiZaposlenika);
             DugmeDodaj = new RelayCommand<object>(dodajZaposlenika);
-            LogIn_Click = new RelayCommand<object>(logIn);
-            
-            
-            KorisnikUsername = "";
-            KorisnikPassword = "";
 
+            DodajZaposlenikaDodaj = new RelayCommand<object>(dodaj);
         }
-
 
         public void obrisiZaposlenika(object parameter)
         {
-           
-            
+
+
         }
 
         public void dodajZaposlenika(object parameter)
         {
-            
-            navigationService.Navigate(typeof(DodajZaposlenika), new DodajZaposlenikaViewModel(this));
 
-            
+            navigationService.Navigate(typeof(DodajZaposlenika), this);
+
+
         }
 
-        
-
-        private async void logIn(object sender)
+        public void dodaj(object parametar)
         {
-            Korisnik = DataSource.DataSource.DajKorisnikaLogIn(KorisnikUsername, KorisnikPassword);
-            
-            if (Korisnik != null && Korisnik is Menadzer)
-            {
-                KorisnikImePrezime = (Korisnik as Menadzer).Ime + " " + (Korisnik as Menadzer).Prezime;
-                navigationService.Navigate(typeof(MenadzerZaposlenik), this);
-            }
-            else if(Korisnik != null && Korisnik is Musterija)
-            {
-                KorisnikImePrezime = (Korisnik as Musterija).Username;
-                navigationService.Navigate(typeof(KorisnikPregledMenija), new ViewModel3(this));
-            }
-            else
-            {
-                var dialog = new MessageDialog("Pogrešno korisničko ime/šifra!", "Neuspješnaprijava");
+            Zaposlenici.Add(Zaposleni);
 
-                await dialog.ShowAsync();
-            }
-        }
-
-        /*
-        public string ImeMenadzera { get => imeMenadzera; set => imeMenadzera = value; }
-        public string PrezimeMenadzera { get => prezimeMenadzera; set => prezimeMenadzera = value; }
-        public string ImePrezimeMenadzera { get => imePrezimeMenadzera; set => imePrezimeMenadzera = value; }
-
-        public ViewModel1()
-        {
+            navigationService.Navigate(typeof(MenadzerZaposlenik), this);
 
         }
-
-        public static ViewModel1 SaPrijavljenog(Korisnik prijavljeniMenadzer)
-        {
-            ViewModel1 viewModel = new ViewModel1();
-            viewModel.ImeMenadzera = (prijavljeniMenadzer as Menadzer).Ime;
-            viewModel.PrezimeMenadzera = (prijavljeniMenadzer as Menadzer).Prezime;
-            viewModel.ImePrezimeMenadzera = (prijavljeniMenadzer as Menadzer).Ime + " " + (prijavljeniMenadzer as Menadzer).Prezime;
-            return viewModel;
-        }
-        */
     }
 }

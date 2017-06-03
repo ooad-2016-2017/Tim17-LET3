@@ -17,10 +17,10 @@ namespace ProjekatMyPub.Model
         private Decimal koeficijent;
         private Decimal plata;
 
-        public Menadzer(String username, String password, String email, String ime, String prezime, DateTime datumRodjenja, String adresa, String telefon,  Decimal koeficijent)
+        public Menadzer(String username, String password, String email, String ime, String prezime, DateTime datumRodjenja, String adresa, String telefon, Decimal koeficijent)
             : base(username, password, email)
         {
-            
+
             Ime = ime;
             Prezime = prezime;
             DatumRodjenja = datumRodjenja;
@@ -135,5 +135,4 @@ namespace ProjekatMyPub.Model
             }
         }
     }
-
 }

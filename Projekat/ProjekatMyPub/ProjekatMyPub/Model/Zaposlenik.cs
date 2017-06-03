@@ -32,7 +32,7 @@ namespace ProjekatMyPub.Model
 
         }
 
-        public Zaposlenik():  base() { DatumRodjenja = new DateTime(1960, 1, 1); }
+        public Zaposlenik() : base() { DatumRodjenja = new DateTime(1960, 1, 1); }
 
         public string Ime
         {
@@ -151,6 +151,4 @@ namespace ProjekatMyPub.Model
             }
         }
     }
-
-
 }

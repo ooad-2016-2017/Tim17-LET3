@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjekatMyPub.Model
 {
-   public class Pjesma
+    public class Pjesma
     {
         private String filePath;
         private String naziv;
@@ -89,9 +89,5 @@ namespace ProjekatMyPub.Model
             zadnjiId++;
         }
 
-        
-
-
-        
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjekatMyPub.Model
 {
-   public class Musterija : Korisnik
+    public class Musterija : Korisnik
     {
         private Boolean vip;
 

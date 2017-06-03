@@ -28,7 +28,6 @@ namespace ProjekatMyPub.View
         {
             this.InitializeComponent();
 
-
             var currentView = SystemNavigationManager.GetForCurrentView();
             currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
             SystemNavigationManager.GetForCurrentView().BackRequested += ThisPage_BackRequested;
@@ -37,7 +36,7 @@ namespace ProjekatMyPub.View
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            DataContext = (DodajZaposlenikaViewModel) e.Parameter;
+            DataContext = (ViewModel1)e.Parameter;
         }
 
         private void ThisPage_BackRequested(object sender, BackRequestedEventArgs e)
@@ -48,9 +47,5 @@ namespace ProjekatMyPub.View
                 e.Handled = true;
             }
         }
-
     }
-
-
 }
-

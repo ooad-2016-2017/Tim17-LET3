@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ProjekatMyPub.View"
-    xmlns:viewmodels="using:ProjekatMyPub.ViewModel"
     xmlns:models="using:ProjekatMyPub.Model"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -54,7 +53,7 @@
             Grid.Row="1"
             IsItemClickEnabled="true"
             SelectionChanged="MeniStavkeListView_SelectionChanged" Width="101"
-            ItemsSource="{Binding StavkeMenija}"
+            ItemsSource="{Binding Path=StavkeMenija}"
             >
 
                 </ListView>
@@ -64,9 +63,9 @@
         </SplitView>
 
         <TextBlock  HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="0" Grid.Column="1"  TextWrapping="Wrap"  VerticalAlignment="Top"  Text="Dobrodošli " />
-        <TextBlock  HorizontalAlignment="Left" Margin="5,10,0,0" Grid.Row="0" Grid.Column="2"  TextWrapping="Wrap"  VerticalAlignment="Top"  Text="{Binding KorisnikImePrezime}" />
+        <TextBlock  HorizontalAlignment="Left" Margin="5,10,0,0" Grid.Row="0" Grid.Column="2"  TextWrapping="Wrap"  VerticalAlignment="Top"  Text="{Binding Path=Parent.KorisnikImePrezime}" />
 
-        <ListView x:Name="listViewMenadzerZaposlenik" ItemTemplate="{StaticResource ZaposleniciListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Zaposlenici, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch"  Margin="0,5,0,0"  Grid.RowSpan="2" Grid.ColumnSpan="3" >
+        <ListView x:Name="listViewMenadzerZaposlenik" ItemTemplate="{StaticResource ZaposleniciListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Path=Zaposlenici, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch"  Margin="0,5,0,0"  Grid.RowSpan="2" Grid.ColumnSpan="3" >
             <ListView.Template>
                 <ControlTemplate>
                     <Grid>
@@ -96,11 +95,10 @@
             </ListView.ItemContainerStyle>
 
         </ListView>
-        <Button Content="Azuriraj" Grid.Row ="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,0,10" Width ="Auto" Command="{Binding DugmeAzuriraj}"/>
-        <Button Content="Dodaj" Grid.Column="2"  Grid.Row="6" VerticalAlignment="Center" Width ="Auto" HorizontalAlignment="Center" Margin="5,5,0,10" MaxWidth="300" Command="{Binding DugmeDodaj}"/>
-        <Button Content="Obrisi" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Margin="5,5,0,10" Width ="Auto" Command="{Binding DugmeObrisi}"/>
+        <Button Content="Azuriraj" Grid.Row ="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,0,10" Width ="Auto" Command="{Binding Path=DugmeAzuriraj}"/>
+        <Button Content="Dodaj" Grid.Column="2"  Grid.Row="6" VerticalAlignment="Center" Width ="Auto" HorizontalAlignment="Center" Margin="5,5,0,10" MaxWidth="300" Command="{Binding Path=DugmeDodaj}"/>
+        <Button Content="Obrisi" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Margin="5,5,0,10" Width ="Auto" Command="{Binding Path=DugmeObrisi}"/>
 
 
     </Grid>
-
 </Page>
