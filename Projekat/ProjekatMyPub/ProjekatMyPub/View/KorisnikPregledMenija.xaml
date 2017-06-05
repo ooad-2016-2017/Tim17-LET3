@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <!--
+    
     <Page.Resources>
 
         <DataTemplate x:Key="PicaListTemplate" x:DataType="models:Pice">
@@ -28,7 +28,6 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -42,7 +41,6 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-
         <Button Name="KorisnikMeniHamburger"  FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="36" Click="PrikaziMeni_Click" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top"/>
         <SplitView Name="MojSplitView1" Grid.Row="1" DisplayMode="CompactOverlay" OpenPaneLength="100" CompactPaneLength="0" HorizontalAlignment="Left" Margin="0,0,0,10" Grid.RowSpan="3">
             <SplitView.Pane>
@@ -53,16 +51,14 @@
             SelectionChanged="MeniStavkeListView_SelectionChanged" Width="101"
             ItemsSource="{Binding StavkeMenija}"
             >
-
                 </ListView>
-
             </SplitView.Pane>
-
         </SplitView>
+        
         <TextBlock x:Name="textBlockDobrodosli" Grid.Column="1" HorizontalAlignment="Left" Margin="0,7,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Dobrodosli! " VerticalAlignment="Top" FontSize="20"/>
         <TextBlock  Grid.Column="2" HorizontalAlignment="Left" Margin="0,7,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Path=ImePrezimeKorisnika}" VerticalAlignment="Top" FontSize="20" />
 
-        <ListView x:Name="listViewListaPica" ItemTemplate="{StaticResource PicaListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Path=Pica, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="2" Grid.Column="1" VerticalAlignment="Stretch"  Margin="0,5,0,0"  Grid.RowSpan="2" SelectionChanged="{Binding}" >
+        <ListView x:Name="listViewListaPica" ItemTemplate="{StaticResource PicaListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Path=Pica, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="2" Grid.Column="1" VerticalAlignment="Stretch"  Margin="0,5,0,0"  Grid.RowSpan="2"  >
             <ListView.Template>
                 <ControlTemplate>
                     <Grid>
@@ -88,9 +84,7 @@
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                 </Style>
             </ListView.ItemContainerStyle>
-
         </ListView>
-
 
         <ListView x:Name="listViewListaNarucenihPica" ItemTemplate="{StaticResource PicaListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Path=NarucenaPica, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="2" Grid.Column="2" VerticalAlignment="Stretch"  Margin="0,5,0,0"  Grid.RowSpan="2" >
             <ListView.Template>
@@ -121,7 +115,11 @@
 
         </ListView>
 
+        <Button Content="Naruci" Grid.Row ="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="37,516.333,20,10" Width ="Auto" Command="{Binding Path=DugmeAzuriraj}"/>
+        <Button Content="Dodaj" Grid.Column="2"  Grid.Row="6" VerticalAlignment="Center" Width ="Auto" HorizontalAlignment="Center" Margin="5,5,0,10" MaxWidth="300" Command="{Binding Path=DugmeDodaj}"/>
+        <Button Content="Dodaj stavku" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Margin="5,5,0,10" Width ="Auto" Command="{Binding Path=DugmeObrisi}"/>
+
     </Grid>
-    -->
+    
 </Page>
 
