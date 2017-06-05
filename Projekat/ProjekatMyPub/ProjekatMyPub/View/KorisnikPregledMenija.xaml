@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    
+
     <Page.Resources>
 
         <DataTemplate x:Key="PicaListTemplate" x:DataType="models:Pice">
@@ -54,7 +54,7 @@
                 </ListView>
             </SplitView.Pane>
         </SplitView>
-        
+
         <TextBlock x:Name="textBlockDobrodosli" Grid.Column="1" HorizontalAlignment="Left" Margin="0,7,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Dobrodosli! " VerticalAlignment="Top" FontSize="20"/>
         <TextBlock  Grid.Column="2" HorizontalAlignment="Left" Margin="0,7,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Path=ImePrezimeKorisnika}" VerticalAlignment="Top" FontSize="20" />
 
@@ -115,11 +115,10 @@
 
         </ListView>
 
-        <Button Content="Naruci" Grid.Row ="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="37,516.333,20,10" Width ="Auto" Command="{Binding Path=DugmeAzuriraj}"/>
-        <Button Content="Dodaj" Grid.Column="2"  Grid.Row="6" VerticalAlignment="Center" Width ="Auto" HorizontalAlignment="Center" Margin="5,5,0,10" MaxWidth="300" Command="{Binding Path=DugmeDodaj}"/>
-        <Button Content="Dodaj stavku" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Margin="5,5,0,10" Width ="Auto" Command="{Binding Path=DugmeObrisi}"/>
+        <Button Content="Dodaj pice" Grid.Row ="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,494.333,10,10" Width ="Auto" Command="{Binding Path=DugmeDodajPice_Click}" Height="54"/>
+        <Button Content="Naruci" Grid.Column="1"  Grid.Row="3" VerticalAlignment="Bottom" Width ="100" HorizontalAlignment="Center" Margin="10,0,10,10" MaxWidth="300" Command="{Binding Path=DugmeNaruci_Click}" Height="54"/>
 
     </Grid>
-    
+
 </Page>
 
