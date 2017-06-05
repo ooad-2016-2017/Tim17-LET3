@@ -35,6 +35,7 @@ namespace ProjekatMyPub.ViewModel
         public LogInVM Parent { get; set; }
         public ObservableCollection<Zaposlenik> zaposlenici;
         public Zaposlenik zaposleni;
+        public Zaposlenik odabraniZaposleni;
         private Int32 indexOdabranog;
         private String stavka1 = "Zaposlenici";
         private String stavka2 = "Narudzba";
@@ -43,6 +44,7 @@ namespace ProjekatMyPub.ViewModel
         public ICommand DugmeObrisi { get; set; }
         public ICommand DugmeDodaj { get; set; }
         public ICommand DodajZaposlenikaDodaj { get; set; }
+        public ICommand AzurirajZaposlenikaAzuriraj { get; set; }
         public INavigationService navigationService { get; set; }
         
 
@@ -56,7 +58,8 @@ namespace ProjekatMyPub.ViewModel
             set
             {
                 zaposlenici = value;
-                OnPropertyChanged("Zaposlenici");
+                OnPropertyChanged("Zaposlenici");
+
             }
         }
 
@@ -101,6 +104,19 @@ namespace ProjekatMyPub.ViewModel
             }
         }
 
+        public Zaposlenik OdabraniZaposleni
+        {
+            get
+            {
+                return odabraniZaposleni;
+            }
+
+            set
+            {
+                odabraniZaposleni = value;
+            }
+        }
+
         public ViewModel1(LogInVM parent)
         {
 
@@ -123,15 +139,16 @@ namespace ProjekatMyPub.ViewModel
 
             IndexOdabranog = -1;
 
-            Zaposleni = new Zaposlenik();
+            
             
             DugmeAzuriraj = new RelayCommand<object>(azurirajZaposlenika);
             DugmeObrisi = new RelayCommand<object>(obrisiZaposlenika);
             DugmeDodaj = new RelayCommand<object>(dodajZaposlenika);
             
             DodajZaposlenikaDodaj = new RelayCommand<object>(dodaj);
+            AzurirajZaposlenikaAzuriraj = new RelayCommand<object>(azuriraj);
 
-            
+
         }
 
         public void obrisiZaposlenika(object parameter)
@@ -140,23 +157,26 @@ namespace ProjekatMyPub.ViewModel
 
             if (IndexOdabranog != -1)
             {
-                ObservableCollection<Zaposlenik> pomocna = Zaposlenici;
 
-                pomocna.RemoveAt(IndexOdabranog);
-
-                Zaposlenici = pomocna;
+                Zaposlenici.RemoveAt(IndexOdabranog);
+                
             }
             
         }
 
         public void azurirajZaposlenika(object parameter)
         {
+            if (IndexOdabranog != -1)
+            {
+                OdabraniZaposleni = Zaposlenici.ElementAt<Zaposlenik>(IndexOdabranog);
+                navigationService.Navigate(typeof(AzurirajZaposlenika), this);
+            }
 
-            Parent.KorisnikImePrezime = IndexOdabranog.ToString();
         }
 
         public void dodajZaposlenika(object parameter)
         {
+            Zaposleni = new Zaposlenik();
 
             navigationService.Navigate(typeof(DodajZaposlenika), this);
 
@@ -165,17 +185,23 @@ namespace ProjekatMyPub.ViewModel
 
         public void dodaj(object parametar)
         {
-            Zaposlenici.Add(Zaposleni);
+            
 
-            Zaposlenici = Zaposlenici;
+            Zaposlenici.Add(Zaposleni);
 
             navigationService.Navigate(typeof(MenadzerZaposlenik), this);
 
-            //Zaposleni = Zaposlenici.ElementAt<Zaposlenik>(2);
+
         }
 
-        
+        public void azuriraj(object parametar)
+        {
+            
+            Zaposlenici.Insert(IndexOdabranog, OdabraniZaposleni);
+            Zaposlenici.RemoveAt(IndexOdabranog);
+            navigationService.Navigate(typeof(MenadzerZaposlenik), this);
 
+        }
 
     }
 }

@@ -117,6 +117,9 @@
     <Compile Include="ViewModel\ViewModel1.cs" />
     <Compile Include="ViewModel\ViewModel2.cs" />
     <Compile Include="ViewModel\ViewModel3.cs" />
+    <Compile Include="View\AzurirajZaposlenika.xaml.cs">
+      <DependentUpon>AzurirajZaposlenika.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DodajZaposlenika.xaml.cs">
       <DependentUpon>DodajZaposlenika.xaml</DependentUpon>
     </Compile>
@@ -172,6 +175,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AzurirajZaposlenika.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DodajZaposlenika.xaml">
       <SubType>Designer</SubType>

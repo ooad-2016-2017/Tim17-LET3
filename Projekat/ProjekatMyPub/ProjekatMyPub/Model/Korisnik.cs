@@ -78,5 +78,10 @@ namespace ProjekatMyPub.Model
                 id = value;
             }
         }
+
+        public static void vratiId()
+        {
+            zadnjiId--;
+        }
     }
 }

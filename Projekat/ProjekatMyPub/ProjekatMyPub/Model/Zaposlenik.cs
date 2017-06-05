@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace ProjekatMyPub.Model
 {
-    public class Zaposlenik : Korisnik, INotifyPropertyChanged
+    public class Zaposlenik : Korisnik, INotifyPropertyChanged
+
     {
         private String ime;
         private String prezime;

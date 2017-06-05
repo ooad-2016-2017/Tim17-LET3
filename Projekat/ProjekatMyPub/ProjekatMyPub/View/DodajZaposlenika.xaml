@@ -40,21 +40,21 @@
         <TextBlock HorizontalAlignment="Left" Margin="5,10,5,0" TextWrapping="Wrap" Text="Adresa: " VerticalAlignment="Top" Grid.Row="3"/>
         <TextBlock HorizontalAlignment="Left" Margin="5,10,5,0" TextWrapping="Wrap" Text="E-mail: " VerticalAlignment="Top" Grid.Row="4"/>
         <TextBlock HorizontalAlignment="Left" Margin="5,10,5,0" TextWrapping="Wrap" Text="Telefon: " VerticalAlignment="Top" Grid.Row="5"/>
-        <TextBlock HorizontalAlignment="Left" Margin="5,10,5,0" TextWrapping="Wrap" Text="Plata: " VerticalAlignment="Top" Grid.Row="6"/>
+        <TextBlock HorizontalAlignment="Left" Margin="5,10,5,0" TextWrapping="Wrap" Text="Koeficijent: " VerticalAlignment="Top" Grid.Row="6"/>
         <TextBlock HorizontalAlignment="Left" Margin="5,10,5,0" TextWrapping="Wrap" Text="Username: " VerticalAlignment="Top" Grid.Row="7"/>
         <TextBlock HorizontalAlignment="Left" Margin="5,10,5,0" TextWrapping="Wrap" Text="Password: " VerticalAlignment="Top" Grid.Row="8"/>
 
 
-        <TextBox Text="{Binding Path=Zaposleni.Ime, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="0" Grid.Column="1" MaxWidth="300" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
-        <TextBox Text="{Binding Path=Zaposleni.Prezime, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" MaxWidth="300" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
-        <DatePicker Date="{Binding Path=Zaposleni.DatumRodjenja, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DateTimeConverter}, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="2" Grid.Column="1" MaxWidth="300" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
-        <TextBox Text="{Binding Path=Zaposleni.Adresa, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="3" Grid.Column="1" MaxWidth="300" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
-        <TextBox Text="{Binding Path=Zaposleni.Email, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="4" Grid.Column="1" MaxWidth="300" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
-        <TextBox Text="{Binding Path=Zaposleni.Telefon, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="5" Grid.Column="1" MaxWidth="300" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
-        <TextBox Text="{Binding Path=Zaposleni.Plata, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DecimalConverter}, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="6" Grid.Column="1" MaxWidth="300" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
-        <TextBox Text="{Binding Path=Zaposleni.Username, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="7" Grid.Column="1" MaxWidth="300" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
-        <TextBox Text="{Binding Path=Zaposleni.Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="8" Grid.Column="1" MaxWidth="300" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
-
+        <TextBox Text="{Binding Path=Zaposleni.Ime, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="0" Grid.Column="1" MaxWidth="230" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
+        <TextBox Text="{Binding Path=Zaposleni.Prezime, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" MaxWidth="230" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
+        <CalendarDatePicker Date="{Binding Path=Zaposleni.DatumRodjenja, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DateTimeConverter}, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="2" Grid.Column="1" MaxWidth="230" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
+        <TextBox Text="{Binding Path=Zaposleni.Adresa, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="3" Grid.Column="1" MaxWidth="230" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
+        <TextBox Text="{Binding Path=Zaposleni.Email, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="4" Grid.Column="1" MaxWidth="230" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
+        <TextBox Text="{Binding Path=Zaposleni.Telefon, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="5" Grid.Column="1" MaxWidth="230" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
+        <TextBox Text="{Binding Path=Zaposleni.Koeficijent, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DecimalConverter}, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="6" Grid.Column="1" MaxWidth="230" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
+        <TextBox Text="{Binding Path=Zaposleni.Username, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="7" Grid.Column="1" MaxWidth="230" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
+        <TextBox Text="{Binding Path=Zaposleni.Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="8" Grid.Column="1" MaxWidth="230" Width="{Binding ElementName=kolona1,Path=ActualWidth}" />
+        
         <Button HorizontalAlignment="Left" Margin="5,10,5,0" VerticalAlignment="Top" Grid.Row="9" Grid.Column="0" Content="Dodaj" Command="{Binding Path=DodajZaposlenikaDodaj}"/>
 
     </Grid>

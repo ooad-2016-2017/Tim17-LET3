@@ -57,7 +57,8 @@ namespace ProjekatMyPub.ViewModel
             {
                 korisnikImePrezime = value;
 
-                OnPropertyChanged("KorisnikImePrezime");
+                OnPropertyChanged("KorisnikImePrezime");
+
             }
         }
 

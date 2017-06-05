@@ -1,5 +1,4 @@
 ﻿using ProjekatMyPub.Helper;
-using ProjekatMyPub.Model;
 using ProjekatMyPub.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -24,16 +23,15 @@ namespace ProjekatMyPub.View
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class DodajZaposlenika : Page
+    public sealed partial class AzurirajZaposlenika : Page
     {
-        public DodajZaposlenika()
+        public AzurirajZaposlenika()
         {
             this.InitializeComponent();
 
             var currentView = SystemNavigationManager.GetForCurrentView();
             currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
             SystemNavigationManager.GetForCurrentView().BackRequested += ThisPage_BackRequested;
-
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -43,7 +41,6 @@ namespace ProjekatMyPub.View
 
         private void ThisPage_BackRequested(object sender, BackRequestedEventArgs e)
         {
-            
             INavigationService navigate = new NavigationService();
             navigate.Navigate(typeof(MenadzerZaposlenik), this.DataContext);
         }
