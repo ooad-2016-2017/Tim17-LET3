@@ -33,7 +33,7 @@ namespace ProjekatMyPub.View
 
         private void PrikaziMeni_Click(object sender, RoutedEventArgs e)
         {
-            //MojSplitView1.IsPaneOpen = !MojSplitView1.IsPaneOpen;
+            MojSplitView1.IsPaneOpen = !MojSplitView1.IsPaneOpen;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -52,6 +52,8 @@ namespace ProjekatMyPub.View
 
 
         }
+
+        
 
     }
 }

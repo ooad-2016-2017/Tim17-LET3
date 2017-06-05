@@ -1,9 +1,12 @@
-﻿using ProjekatMyPub.Model;
+﻿using ProjekatMyPub.Helper;
+using ProjekatMyPub.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Windows.UI.Popups;
 
 namespace ProjekatMyPub.ViewModel
 {
@@ -16,6 +19,8 @@ namespace ProjekatMyPub.ViewModel
         public List<Pice> pica;
         public List<Pice> narucenaPica;
         public String imePrezimeKorisnika;
+        public INavigationService navigationService;
+        public ICommand DugmeDodajPice_Click { get; set; }
 
         public List<string> StavkeMenija
         {
@@ -72,21 +77,31 @@ namespace ProjekatMyPub.ViewModel
         // dodati button selectionchanged kao u VM1
         //public String passwordKorisnika;
 
-
-
+        
 
         //public string PasswordKorisnika { get => passwordKorisnika; set => passwordKorisnika = value; }
 
         public ViewModel3(LogInVM parent)
         {
-            StavkeMenija = new List<string>();
+            StavkeMenija = new List<String>();
             StavkeMenija.Add(stavka1);
             StavkeMenija.Add(stavka2);
             StavkeMenija.Add(stavka3);
+
             ImePrezimeKorisnika = parent.KorisnikImePrezime;
             Pica = new List<Pice>();
             Pica = DataSource.DataSource.DajSvaPica();
             NarucenaPica = new List<Pice>();
+
+            DugmeDodajPice_Click = new RelayCommand<object>(dodaj_stavku_narudzbe);
+            navigationService = new NavigationService();
+        }
+
+        private async void dodaj_stavku_narudzbe(object sender)
+        {
+            var dialog = new MessageDialog("Pogrešno korisničko ime/šifra!", "Neuspješnaprijava");
+
+            await dialog.ShowAsync();
         }
     }
 }
