@@ -10,12 +10,16 @@ namespace ProjekatMyPub.Model
     {
         private Boolean daLiJeZauzet;
         private Int32 brojStola;
+        private String imeStola;
+        private List<Narudzba> narudzbe;
         private static Int32 zadnjiStol = 1;
 
         public Stol(Boolean daLiJeZauzet)
         {
             DaLiJeZauzet = daLiJeZauzet;
             BrojStola = zadnjiStol;
+            ImeStola = "Stol " + BrojStola;
+            Narudzbe = new List<Narudzba>();
             zadnjiStol++;
 
         }
@@ -30,6 +34,32 @@ namespace ProjekatMyPub.Model
             set
             {
                 daLiJeZauzet = value;
+            }
+        }
+
+        public List<Narudzba> Narudzbe
+        {
+            get
+            {
+                return narudzbe;
+            }
+
+            set
+            {
+                narudzbe = value;
+            }
+        }
+
+        public String ImeStola
+        {
+            get
+            {
+                return imeStola;
+            }
+
+            set
+            {
+                imeStola = value;
             }
         }
 

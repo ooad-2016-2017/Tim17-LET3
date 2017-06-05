@@ -8,5 +8,6 @@ namespace ProjekatMyPub.ViewModel
 {
     class ViewModel2
     {
+
     }
 }
