@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ProjekatMyPub.Model
 {
-    public class Zaposlenik : Korisnik
+    public class Zaposlenik : Korisnik, INotifyPropertyChanged
     {
         private String ime;
         private String prezime;
@@ -44,6 +45,8 @@ namespace ProjekatMyPub.Model
             set
             {
                 ime = value;
+                OnPropertyChanged("Ime");
+
             }
         }
 
@@ -57,6 +60,8 @@ namespace ProjekatMyPub.Model
             set
             {
                 prezime = value;
+                OnPropertyChanged("Prezime");
+
             }
         }
 
@@ -70,6 +75,9 @@ namespace ProjekatMyPub.Model
             set
             {
                 datumRodjenja = value;
+                OnPropertyChanged("DatumRodjenja");
+
+
             }
         }
 
@@ -83,6 +91,8 @@ namespace ProjekatMyPub.Model
             set
             {
                 adresa = value;
+                OnPropertyChanged("Adresa");
+
             }
         }
 
@@ -96,6 +106,8 @@ namespace ProjekatMyPub.Model
             set
             {
                 telefon = value;
+                OnPropertyChanged("Telefon");
+
             }
         }
 
@@ -109,6 +121,8 @@ namespace ProjekatMyPub.Model
             set
             {
                 baznaPlata = value;
+
+                
             }
         }
 
@@ -122,6 +136,8 @@ namespace ProjekatMyPub.Model
             set
             {
                 koeficjent = value;
+                OnPropertyChanged("Koeficijent");
+
             }
         }
 
@@ -135,6 +151,7 @@ namespace ProjekatMyPub.Model
             set
             {
                 plata = value;
+
             }
         }
 
@@ -148,7 +165,19 @@ namespace ProjekatMyPub.Model
             set
             {
                 email = value;
+                OnPropertyChanged("Email");
+
             }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
     }
 }

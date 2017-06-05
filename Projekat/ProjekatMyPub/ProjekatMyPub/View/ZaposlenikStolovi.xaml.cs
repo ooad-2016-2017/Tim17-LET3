@@ -26,5 +26,22 @@ namespace ProjekatMyPub.View
         {
             this.InitializeComponent();
         }
+
+        private void PrikaziMeni_Click(object sender, RoutedEventArgs e)
+        {
+            ZaposlenikStoloviSplitView.IsPaneOpen = !ZaposlenikStoloviSplitView.IsPaneOpen;
+        }
+
+        private void MeniZaposlenikStoloviListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            /*
+            String kliknuta = e.AddedItems[0].ToString();
+            if (kliknuta.Equals("Narudzba"))
+            {
+                this.Frame.Navigate(typeof(MenadzerNarudzba), korisnik);
+            }
+            */
+
+        }
     }
 }

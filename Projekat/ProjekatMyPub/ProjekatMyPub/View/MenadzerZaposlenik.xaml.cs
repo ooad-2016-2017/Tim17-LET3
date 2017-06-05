@@ -1,6 +1,7 @@
 ﻿using ProjekatMyPub.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -36,10 +37,13 @@ namespace ProjekatMyPub.View
             MojSplitView.IsPaneOpen = !MojSplitView.IsPaneOpen;
         }
 
+
+        
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
-            DataContext = (ViewModel1)e.Parameter;
+            this.DataContext = (ViewModel1)e.Parameter;
 
             var currentView = SystemNavigationManager.GetForCurrentView();
 
@@ -58,5 +62,6 @@ namespace ProjekatMyPub.View
             */
 
         }
+
     }
 }

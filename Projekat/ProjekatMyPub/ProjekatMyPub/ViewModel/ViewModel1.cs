@@ -3,6 +3,8 @@ using ProjekatMyPub.Model;
 using ProjekatMyPub.View;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,12 +13,29 @@ using Windows.UI.Xaml.Controls;
 
 namespace ProjekatMyPub.ViewModel
 {
-    class ViewModel1
+
+    
+
+    class ViewModel1 : INotifyPropertyChanged
     {
 
+        #region Implementacija interfejsa
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        #endregion
+
+        
+
         public LogInVM Parent { get; set; }
-        public List<Zaposlenik> zaposlenici;
+        public ObservableCollection<Zaposlenik> zaposlenici;
         public Zaposlenik zaposleni;
+        private Int32 indexOdabranog;
         private String stavka1 = "Zaposlenici";
         private String stavka2 = "Narudzba";
         public List<String> stavkeMenija;
@@ -25,8 +44,9 @@ namespace ProjekatMyPub.ViewModel
         public ICommand DugmeDodaj { get; set; }
         public ICommand DodajZaposlenikaDodaj { get; set; }
         public INavigationService navigationService { get; set; }
+        
 
-        public List<Zaposlenik> Zaposlenici
+        public ObservableCollection<Zaposlenik> Zaposlenici
         {
             get
             {
@@ -36,6 +56,7 @@ namespace ProjekatMyPub.ViewModel
             set
             {
                 zaposlenici = value;
+                OnPropertyChanged("Zaposlenici");
             }
         }
 
@@ -65,11 +86,26 @@ namespace ProjekatMyPub.ViewModel
             }
         }
 
+        public int IndexOdabranog
+        {
+            get
+            {
+                return indexOdabranog;
+            }
+
+            set
+            {
+                indexOdabranog = value;
+
+                OnPropertyChanged("IndexOdabranog");
+            }
+        }
+
         public ViewModel1(LogInVM parent)
         {
 
             navigationService = new NavigationService();
-            zaposlenici = new List<Zaposlenik>();
+            zaposlenici = new ObservableCollection<Zaposlenik>();
             List<Korisnik> korisnici = DataSource.DataSource.DajSveKorisnike();
 
             foreach (Korisnik p in korisnici)
@@ -85,19 +121,38 @@ namespace ProjekatMyPub.ViewModel
 
             Parent = parent;
 
+            IndexOdabranog = -1;
+
             Zaposleni = new Zaposlenik();
             
-            //DugmeAzuriraj = new RelayCommand<object>(f1);
+            DugmeAzuriraj = new RelayCommand<object>(azurirajZaposlenika);
             DugmeObrisi = new RelayCommand<object>(obrisiZaposlenika);
             DugmeDodaj = new RelayCommand<object>(dodajZaposlenika);
-
+            
             DodajZaposlenikaDodaj = new RelayCommand<object>(dodaj);
+
+            
         }
 
         public void obrisiZaposlenika(object parameter)
         {
+            //Zaposlenik pomocni = Zaposlenici.ElementAt<Zaposlenik>(IndexOdabranog);
 
+            if (IndexOdabranog != -1)
+            {
+                ObservableCollection<Zaposlenik> pomocna = Zaposlenici;
 
+                pomocna.RemoveAt(IndexOdabranog);
+
+                Zaposlenici = pomocna;
+            }
+            
+        }
+
+        public void azurirajZaposlenika(object parameter)
+        {
+
+            Parent.KorisnikImePrezime = IndexOdabranog.ToString();
         }
 
         public void dodajZaposlenika(object parameter)
@@ -112,8 +167,15 @@ namespace ProjekatMyPub.ViewModel
         {
             Zaposlenici.Add(Zaposleni);
 
+            Zaposlenici = Zaposlenici;
+
             navigationService.Navigate(typeof(MenadzerZaposlenik), this);
 
+            //Zaposleni = Zaposlenici.ElementAt<Zaposlenik>(2);
         }
+
+        
+
+
     }
 }

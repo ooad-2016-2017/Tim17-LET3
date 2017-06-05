@@ -3,6 +3,7 @@ using ProjekatMyPub.Model;
 using ProjekatMyPub.View;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,8 +12,19 @@ using Windows.UI.Popups;
 
 namespace ProjekatMyPub.ViewModel
 {
-    class LogInVM
+    class LogInVM : INotifyPropertyChanged
     {
+
+        #region Implementacija interfejsa
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        #endregion
 
         public Korisnik korisnik;
         public ICommand LogIn_Click { get; set; }
@@ -44,6 +56,8 @@ namespace ProjekatMyPub.ViewModel
             set
             {
                 korisnikImePrezime = value;
+
+                OnPropertyChanged("KorisnikImePrezime");
             }
         }
 
@@ -94,11 +108,13 @@ namespace ProjekatMyPub.ViewModel
                 KorisnikImePrezime = (Korisnik as Musterija).Username;
                 navigationService.Navigate(typeof(KorisnikPregledMenija), new ViewModel3(this));
             }
+            /*
             else if (Korisnik != null && Korisnik is Zaposlenik)
             {
                 KorisnikImePrezime = (Korisnik as Zaposlenik).Ime + " " + (Korisnik as Zaposlenik).Prezime;
                 navigationService.Navigate(typeof(ZaposlenikStolovi), new ViewModel2(this));
             }
+            */
             else
             {
                 var dialog = new MessageDialog("Pogrešno korisničko ime/šifra!", "Neuspješnaprijava");
