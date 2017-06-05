@@ -29,14 +29,14 @@ namespace ProjekatMyPub.View
 
 
             // DataContext = new ViewModel2();
-            /*
+            
             String Stolovi = "Stolovi";
             String Playliste = "Playliste";
             MeniZaposlenikListView.Items.Add(Stolovi);
             MeniZaposlenikListView.Items.Add(Playliste);
 
             NavigationCacheMode = NavigationCacheMode.Required;
-            */
+            
         }
 
         

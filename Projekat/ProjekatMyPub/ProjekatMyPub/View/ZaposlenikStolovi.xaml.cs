@@ -25,22 +25,32 @@ namespace ProjekatMyPub.View
         public ZaposlenikStolovi()
         {
             this.InitializeComponent();
+
+            // DataContext = new ViewModel2();
+            /*
+            String Stolovi = "Stolovi";
+            String Playliste = "Playliste";
+            MeniZaposlenikListView.Items.Add(Stolovi);
+            MeniZaposlenikListView.Items.Add(Playliste);
+
+            NavigationCacheMode = NavigationCacheMode.Required;
+            */
         }
 
-        private void PrikaziMeni_Click(object sender, RoutedEventArgs e)
+        private void ZaposlenikStoloviHamburger_Click(object sender, RoutedEventArgs e)
         {
             ZaposlenikStoloviSplitView.IsPaneOpen = !ZaposlenikStoloviSplitView.IsPaneOpen;
         }
 
-        private void MeniZaposlenikStoloviListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void MeniZaposlenikListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            /*
+            
             String kliknuta = e.AddedItems[0].ToString();
-            if (kliknuta.Equals("Narudzba"))
+            if (kliknuta.Equals("Playlista"))
             {
-                this.Frame.Navigate(typeof(MenadzerNarudzba), korisnik);
+                this.Frame.Navigate(typeof(ZaposlenikPlaylista));
             }
-            */
+            
 
         }
     }
