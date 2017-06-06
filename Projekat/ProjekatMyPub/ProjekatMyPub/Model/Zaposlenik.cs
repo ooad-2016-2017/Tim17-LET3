@@ -17,7 +17,7 @@ namespace ProjekatMyPub.Model
         private String email;
         private String telefon;
         private Decimal baznaPlata = 1000M;
-        private Decimal koeficjent;
+        private Decimal koeficijent;
         private Decimal plata;
 
         public Zaposlenik(String username, String password, String email, String ime, String prezime, DateTime datumRodjenja, String adresa, String telefon, Decimal koeficijent)
@@ -28,8 +28,8 @@ namespace ProjekatMyPub.Model
             DatumRodjenja = datumRodjenja;
             Adresa = adresa;
             Telefon = telefon;
-            Koeficjent = Koeficjent;
-            Plata = Koeficjent * BaznaPlata;
+            Koeficijent = koeficijent;
+            Plata = Koeficijent * BaznaPlata;
             Email = email;
 
         }
@@ -127,16 +127,16 @@ namespace ProjekatMyPub.Model
             }
         }
 
-        public decimal Koeficjent
+        public decimal Koeficijent
         {
             get
             {
-                return koeficjent;
+                return koeficijent;
             }
 
             set
             {
-                koeficjent = value;
+                koeficijent = value;
                 OnPropertyChanged("Koeficijent");
 
             }

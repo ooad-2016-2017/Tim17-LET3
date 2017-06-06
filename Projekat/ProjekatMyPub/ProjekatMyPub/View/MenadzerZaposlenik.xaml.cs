@@ -53,13 +53,13 @@ namespace ProjekatMyPub.View
 
         private void MeniStavkeListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            /*
+            
             String kliknuta = e.AddedItems[0].ToString();
             if (kliknuta.Equals("Narudzba"))
             {
-                this.Frame.Navigate(typeof(MenadzerNarudzba), korisnik);
+                this.Frame.Navigate(typeof(MenadzerNarudzba), this.DataContext);
             }
-            */
+            
 
         }
 

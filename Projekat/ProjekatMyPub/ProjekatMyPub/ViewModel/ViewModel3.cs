@@ -2,6 +2,7 @@
 using ProjekatMyPub.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,8 +17,8 @@ namespace ProjekatMyPub.ViewModel
         private String stavka1 = "Rezervacija";
         private String stavka2 = "Meni";
         private String stavka3 = "Jukebox";
-        public List<Pice> pica;
-        public List<Pice> narucenaPica;
+        public ObservableCollection<Pice> pica;
+        public ObservableCollection<Pice> narucenaPica;
         public String imePrezimeKorisnika;
         public INavigationService navigationService;
         public ICommand DugmeDodajPice_Click { get; set; }
@@ -35,7 +36,7 @@ namespace ProjekatMyPub.ViewModel
             }
         }
 
-        public List<Pice> Pica
+        public ObservableCollection<Pice> Pica
         {
             get
             {
@@ -48,7 +49,7 @@ namespace ProjekatMyPub.ViewModel
             }
         }
 
-        public List<Pice> NarucenaPica
+        public ObservableCollection<Pice> NarucenaPica
         {
             get
             {
@@ -89,9 +90,9 @@ namespace ProjekatMyPub.ViewModel
             StavkeMenija.Add(stavka3);
 
             ImePrezimeKorisnika = parent.KorisnikImePrezime;
-            Pica = new List<Pice>();
+            Pica = new ObservableCollection<Pice>();
             Pica = DataSource.DataSource.DajSvaPica();
-            NarucenaPica = new List<Pice>();
+            NarucenaPica = new ObservableCollection<Pice>();
 
             DugmeDodajPice_Click = new RelayCommand<object>(dodaj_stavku_narudzbe);
             navigationService = new NavigationService();

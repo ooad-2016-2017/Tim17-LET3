@@ -1,6 +1,7 @@
 ﻿using ProjekatMyPub.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace ProjekatMyPub.DataSource
     public class DataSource
     {
 
-        public static List<Korisnik> korisnici = new List<Korisnik>()
+        public static ObservableCollection<Korisnik> korisnici = new ObservableCollection<Korisnik>()
         {
             new Menadzer("tvidovic1", "password", "tvidovic1@etf.unsa.ba", "Tin", "Vidovic", new DateTime(1996, 8, 6), "Splitska 10", "062/106-016", 2.5M),
             new Menadzer("tvidovic2", "password", "tvidovic1@etf.unsa.ba", "Tinky", "Winky", new DateTime(1996, 8, 6), "Splitska 10", "062/106-016", 2.5M),
@@ -21,7 +22,7 @@ namespace ProjekatMyPub.DataSource
 
         };
 
-        public static List<Korisnik> DajSveKorisnike()
+        public static ObservableCollection<Korisnik> DajSveKorisnike()
         {
             return korisnici;
         }
@@ -55,7 +56,7 @@ namespace ProjekatMyPub.DataSource
         }
 
 
-        private static List<Stol> stolovi = new List<Stol>()
+        private static ObservableCollection<Stol> stolovi = new ObservableCollection<Stol>()
         {
            new Stol (false),
            new Stol(false),
@@ -63,7 +64,7 @@ namespace ProjekatMyPub.DataSource
 
         };
 
-        public static List<Stol> DajSveStolove()
+        public static ObservableCollection<Stol> DajSveStolove()
         {
             return stolovi;
         }
@@ -83,7 +84,7 @@ namespace ProjekatMyPub.DataSource
             return null;
         }
 
-        private static List<Pjesma> pjesme = new List<Pjesma>()
+        private static ObservableCollection<Pjesma> pjesme = new ObservableCollection<Pjesma>()
         {
            new Pjesma("pjesma1", 1),
            new Pjesma("pjesma2", 2),
@@ -92,7 +93,7 @@ namespace ProjekatMyPub.DataSource
 
         };
 
-        public static List<Pjesma> DajSvePjesme()
+        public static ObservableCollection<Pjesma> DajSvePjesme()
         {
             return pjesme;
         }
@@ -112,14 +113,14 @@ namespace ProjekatMyPub.DataSource
             return null;
         }
 
-        private static List<Playlista> playliste = new List<Playlista>()
+        private static ObservableCollection<Playlista> playliste = new ObservableCollection<Playlista>()
         {
            new Playlista("playlista1",  pjesme),
-           new Playlista("playlista2", new List<Pjesma>(){new Pjesma("pjesma5", 5), new Pjesma("pjesma6", 6)})
+           new Playlista("playlista2", new ObservableCollection<Pjesma>(){new Pjesma("pjesma5", 5), new Pjesma("pjesma6", 6)})
 
         };
 
-        public static List<Playlista> DajSvePlayliste()
+        public static ObservableCollection<Playlista> DajSvePlayliste()
         {
             return playliste;
         }
@@ -139,7 +140,7 @@ namespace ProjekatMyPub.DataSource
             return null;
         }
 
-        private static List<Pice> pica = new List<Pice>()
+        private static ObservableCollection<Pice> pica = new ObservableCollection<Pice>()
         {
             new Pice("Coca Cola",3M,20,10,50),
             new Pice("Karlovacko",3.5M,40,10,50),
@@ -147,7 +148,7 @@ namespace ProjekatMyPub.DataSource
             new Pice("Ožujsko",3M,30,10,50)
         };
 
-        public static List<Pice> DajSvaPica()
+        public static ObservableCollection<Pice> DajSvaPica()
         {
             return pica;
         }

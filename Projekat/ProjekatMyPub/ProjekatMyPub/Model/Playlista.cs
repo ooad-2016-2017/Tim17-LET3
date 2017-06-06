@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,9 +10,9 @@ namespace ProjekatMyPub.Model
     public class Playlista
     {
         private String naziv;
-        private List<Pjesma> pjesme = new List<Pjesma>();
+        private ObservableCollection<Pjesma> pjesme = new ObservableCollection<Pjesma>();
 
-        public Playlista(String naziv, List<Pjesma> pjesme)
+        public Playlista(String naziv, ObservableCollection<Pjesma> pjesme)
         {
             Naziv = naziv;
             Pjesme = pjesme;
@@ -30,7 +31,7 @@ namespace ProjekatMyPub.Model
             }
         }
 
-        public List<Pjesma> Pjesme
+        public ObservableCollection<Pjesma> Pjesme
         {
             get
             {

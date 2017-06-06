@@ -36,7 +36,8 @@ namespace ProjekatMyPub.ViewModel
         public ObservableCollection<Zaposlenik> zaposlenici;
         public Zaposlenik zaposleni;
         public Zaposlenik odabraniZaposleni;
-        private Int32 indexOdabranog;
+        public Int32 indexOdabranog;
+        public ObservableCollection<Pice> pica;
         private String stavka1 = "Zaposlenici";
         private String stavka2 = "Narudzba";
         public List<String> stavkeMenija;
@@ -117,12 +118,25 @@ namespace ProjekatMyPub.ViewModel
             }
         }
 
+        public ObservableCollection<Pice> Pica
+        {
+            get
+            {
+                return pica;
+            }
+
+            set
+            {
+                pica = value;
+            }
+        }
+
         public ViewModel1(LogInVM parent)
         {
 
             navigationService = new NavigationService();
             zaposlenici = new ObservableCollection<Zaposlenik>();
-            List<Korisnik> korisnici = DataSource.DataSource.DajSveKorisnike();
+            ObservableCollection<Korisnik> korisnici = DataSource.DataSource.DajSveKorisnike();
 
             foreach (Korisnik p in korisnici)
             {
@@ -131,6 +145,9 @@ namespace ProjekatMyPub.ViewModel
                     Zaposlenici.Add(p as Zaposlenik);
                 }
             }
+
+            Pica = new ObservableCollection<Pice>();
+            Pica = DataSource.DataSource.DajSvaPica();
             StavkeMenija = new List<String>();
             StavkeMenija.Add(stavka1);
             StavkeMenija.Add(stavka2);
