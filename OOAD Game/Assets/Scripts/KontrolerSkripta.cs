@@ -5,13 +5,14 @@ using UnityEngine;
 public class KontrolerSkripta : MonoBehaviour {
 
     public Camera kamera;
+    private bool pocelo;
 
     private float maxWidth;
 	// Use this for initialization
 	void Start () {
 
         //kamera = Camera.main;
-
+        pocelo = false;
         if (kamera == null)
         {
             kamera = Camera.main;
@@ -26,16 +27,24 @@ public class KontrolerSkripta : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-        Vector3 pomocni = kamera.ScreenToWorldPoint(Input.mousePosition);
+        if (pocelo)
+        {
+            Vector3 pomocni = kamera.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector3 pozicija = new Vector3(pomocni.x, -5.0f, 0.0f);
+            Vector3 pozicija = new Vector3(pomocni.x, -5.0f, 0.0f);
 
-        float sirina = Mathf.Clamp(pozicija.x, -maxWidth, maxWidth);
+            float sirina = Mathf.Clamp(pozicija.x, -maxWidth, maxWidth);
 
-        pozicija = new Vector3(sirina, pozicija.y, pozicija.z);
+            pozicija = new Vector3(sirina, pozicija.y, pozicija.z);
 
-        GetComponent<Rigidbody2D>().isKinematic = true;
+            GetComponent<Rigidbody2D>().isKinematic = true;
 
-        GetComponent<Rigidbody2D>().MovePosition(pozicija);
+            GetComponent<Rigidbody2D>().MovePosition(pozicija);
+        }
+    }
+
+    public void ToggleControl(bool toggle)
+    {
+        pocelo = toggle;
     }
 }

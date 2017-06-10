@@ -78,8 +78,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Fula.cs" />
     <Compile Include="Assets\Scripts\GeneratorSkripta.cs" />
     <Compile Include="Assets\Scripts\KontrolerSkripta.cs" />
+    <Compile Include="Assets\Scripts\RestartScript.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\Sudar.cs" />
   </ItemGroup>
