@@ -33,6 +33,8 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -57,7 +59,7 @@
         <TextBlock  HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="3" Text="Dobrodosli!" VerticalAlignment="Top" FontSize="20" Width="360"/>
         <TextBlock  HorizontalAlignment="Left" Margin="0,5.333,0,0" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="2" Text="Lista stolova:" VerticalAlignment="Top" FontSize="20" Width="153"/>
 
-        <ListView x:Name="listView" ItemTemplate="{StaticResource StoloviListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Stolovi}"  HorizontalAlignment="Stretch"  Grid.Row="3" Grid.Column="1" VerticalAlignment="Stretch"  Margin="0,5,0,0" >
+        <ListView x:Name="listView" ItemTemplate="{StaticResource StoloviListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Stolovi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="3" Grid.Column="1" VerticalAlignment="Stretch"  Margin="0,5,0,0" SelectedIndex="{Binding IndeksOdabranogStola, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListView.Template>
                 <ControlTemplate>
                     <Grid>
@@ -85,5 +87,8 @@
         </ListView>
 
         <Button Content="Rezervisi" Grid.Column="1"  Grid.Row="4" VerticalAlignment="Bottom" Width ="100" HorizontalAlignment="Center" Margin="10,0,10,10" MaxWidth="300" Command="{Binding Path=DugmeRezervisiStol_Click}" Height="54"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="3" Text="Stol koji ste rezervisali:" VerticalAlignment="Top" FontSize="20" Width="360"/>
+        <TextBlock  HorizontalAlignment="Left" Grid.Row="6" Grid.Column="1"  TextWrapping="Wrap"  VerticalAlignment="Top"  Text="{Binding OdabraniStol.ImeStola, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="153" Height="54" FontSize="20" />
+        <Button Content="Otkazi rezervaciju" Grid.Column="1"  Grid.Row="6" VerticalAlignment="Bottom" Width ="149" HorizontalAlignment="Center" Margin="58,0,53,10" MaxWidth="300" Command="{Binding Path=DugmeOtkaziRezervaciju_Click}" Height="54"/>
     </Grid>
 </Page>
