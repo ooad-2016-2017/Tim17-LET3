@@ -13,9 +13,6 @@ using Windows.UI.Xaml.Controls;
 
 namespace ProjekatMyPub.ViewModel
 {
-
-    
-
     class ViewModel1 : INotifyPropertyChanged
     {
 

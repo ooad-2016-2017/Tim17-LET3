@@ -31,12 +31,12 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
@@ -58,7 +58,7 @@
         <TextBlock x:Name="textBlockDobrodosli" Grid.Column="1" HorizontalAlignment="Left" Margin="0,7,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Dobrodosli! " VerticalAlignment="Top" FontSize="20"/>
         <TextBlock  Grid.Column="2" HorizontalAlignment="Left" Margin="0,7,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Path=ImePrezimeKorisnika}" VerticalAlignment="Top" FontSize="20" />
 
-        <ListView x:Name="listViewListaPica" ItemTemplate="{StaticResource PicaListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Path=Pica, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="2" Grid.Column="1" VerticalAlignment="Stretch"  Margin="0,5,0,0"  Grid.RowSpan="2"  >
+        <ListView x:Name="listViewListaPica" ItemTemplate="{StaticResource PicaListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Path=Pica, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="2" Grid.Column="1" VerticalAlignment="Stretch"  Margin="0,5,0,0"  Grid.RowSpan="2" SelectedIndex="{Binding IndeksOdabranogPica, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListView.Template>
                 <ControlTemplate>
                     <Grid>
@@ -86,7 +86,7 @@
             </ListView.ItemContainerStyle>
         </ListView>
 
-        <ListView x:Name="listViewListaNarucenihPica" ItemTemplate="{StaticResource PicaListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Path=NarucenaPica, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="2" Grid.Column="2" VerticalAlignment="Stretch"  Margin="0,5,0,0"  Grid.RowSpan="2" >
+        <ListView x:Name="listViewListaNarucenihPica" ItemTemplate="{StaticResource PicaListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Path=NarucenaPica, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="2" Grid.Column="2" VerticalAlignment="Stretch"  Margin="0,5,0,0"  Grid.RowSpan="2" SelectedIndex="{Binding IndexOdabranogPica, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListView.Template>
                 <ControlTemplate>
                     <Grid>
@@ -115,8 +115,8 @@
 
         </ListView>
 
-        <Button Content="Dodaj pice" Grid.Row ="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,494.333,10,10" Width ="Auto" Command="{Binding Path=DugmeDodajPice_Click}" Height="54"/>
-        <Button Content="Naruci" Grid.Column="1"  Grid.Row="3" VerticalAlignment="Bottom" Width ="100" HorizontalAlignment="Center" Margin="10,0,10,10" MaxWidth="300" Command="{Binding Path=DugmeNaruci_Click}" Height="54"/>
+        <Button Content="Dodaj pice" Grid.Row ="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="13,0,16,10" Width ="Auto" Command="{Binding Path=DugmeDodajPice_Click}" Height="54"/>
+        <Button Content="Naruci" Grid.Column="2"  Grid.Row="3" VerticalAlignment="Bottom" Width ="100" HorizontalAlignment="Center" Margin="10,0,10,10" MaxWidth="300" Command="{Binding Path=DugmeNaruci_Click}" Height="54"/>
 
     </Grid>
 

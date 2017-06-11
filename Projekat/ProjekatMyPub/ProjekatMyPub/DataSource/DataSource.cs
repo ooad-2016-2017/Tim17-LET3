@@ -86,12 +86,15 @@ namespace ProjekatMyPub.DataSource
 
         private static ObservableCollection<Pjesma> pjesme = new ObservableCollection<Pjesma>()
         {
-           new Pjesma("pjesma1", 1),
+           /*new Pjesma("pjesma1", 1),
            new Pjesma("pjesma2", 2),
            new Pjesma("pjesma3", 3),
-           new Pjesma ("pjesma4", 4)
-
-        };
+           new Pjesma ("pjesma4", 4)*/
+           new Pjesma("pjesma1","Sliver","Nirvana"),
+           new Pjesma("pjesma1","Uzalud pitas","Haustor"),
+           new Pjesma("pjesma1","Black","Pearl jam"),
+           new Pjesma("pjesma1","Sanjam","Indeksi")
+    };
 
         public static ObservableCollection<Pjesma> DajSvePjesme()
         {
