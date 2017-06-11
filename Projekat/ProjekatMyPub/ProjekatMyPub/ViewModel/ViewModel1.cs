@@ -42,6 +42,7 @@ namespace ProjekatMyPub.ViewModel
         public String textCijenaNabavke;
         private String stavka1 = "Zaposlenici";
         private String stavka2 = "Narudzba";
+        private String stavka3 = "Log Out";
         public List<String> stavkeMenija;
         public ICommand DugmeAzuriraj { get; set; }
         public ICommand DugmeObrisi { get; set; }
@@ -223,6 +224,7 @@ namespace ProjekatMyPub.ViewModel
             StavkeMenija = new List<String>();
             StavkeMenija.Add(stavka1);
             StavkeMenija.Add(stavka2);
+            StavkeMenija.Add(stavka3);
 
             Nabavka = new MyPubNarucivanje();
 

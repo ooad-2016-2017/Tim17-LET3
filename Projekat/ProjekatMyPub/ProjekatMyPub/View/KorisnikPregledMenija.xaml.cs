@@ -58,6 +58,10 @@ namespace ProjekatMyPub.View
             {
                 this.Frame.Navigate(typeof(KorisnikRezervacija), this.DataContext);
             }
+            if (kliknuta.Equals("Log Out"))
+            {
+                this.Frame.Navigate(typeof(Login), new LogInVM());
+            }
         }
 
         

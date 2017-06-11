@@ -22,6 +22,7 @@ namespace ProjekatMyPub.ViewModel
         public INavigationService navigationService { get; set; }
         private String stavka1 = "Stolovi";
         private String stavka2 = "Playliste";
+        private String stavka3 = "Log Out";
         public List<String> stavkeMenija;
         public ICommand DugmeOdgovoriNaNarudzbu { get; set; }
         public ICommand DugmeDajRacun { get; set; }
@@ -50,6 +51,7 @@ namespace ProjekatMyPub.ViewModel
 
             StavkeMenija.Add(stavka2);
 
+            StavkeMenija.Add(stavka3);
             Parent = parent;
 
 

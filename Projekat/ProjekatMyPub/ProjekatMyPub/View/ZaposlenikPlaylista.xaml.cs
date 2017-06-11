@@ -58,7 +58,10 @@ namespace ProjekatMyPub.View
             {
                 this.Frame.Navigate(typeof(ZaposlenikStolovi), this.DataContext);
             }
-
+            if (kliknuta.Equals("Log Out"))
+            {
+                this.Frame.Navigate(typeof(Login), new LogInVM());
+            }
 
         }
 
