@@ -14,7 +14,7 @@ namespace ProjekatMyPub.Model
         private List<Narudzba> narudzbe;
         private static Int32 zadnjiStol = 1;
         private String zauzet;
-        private Musterija izvrsilaRezervaciju;
+        private Korisnik izvrsilaRezervaciju;
 
         public Stol(Boolean daLiJeZauzet)
         {
@@ -94,7 +94,7 @@ namespace ProjekatMyPub.Model
             }
         }
 
-        public Musterija IzvrsilaRezervaciju
+        public Korisnik IzvrsilaRezervaciju
         {
             get
             {

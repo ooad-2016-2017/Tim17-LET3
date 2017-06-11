@@ -1,4 +1,5 @@
-﻿using ProjekatMyPub.ViewModel;
+﻿using ProjekatMyPub.Helper;
+using ProjekatMyPub.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,42 +23,29 @@ namespace ProjekatMyPub.View
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MenadzerNarudzba : Page
+    public sealed partial class NarudzbenicaForma : Page
     {
-        public MenadzerNarudzba()
+        public NarudzbenicaForma()
         {
+
             this.InitializeComponent();
 
-            NavigationCacheMode = NavigationCacheMode.Required;
-        }
+            var currentView = SystemNavigationManager.GetForCurrentView();
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            SystemNavigationManager.GetForCurrentView().BackRequested += ThisPage_BackRequested;
 
-        private void PrikaziMeni_Click(object sender, RoutedEventArgs e)
-        {
-            MojSplitView.IsPaneOpen = !MojSplitView.IsPaneOpen;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-
             this.DataContext = (ViewModel1)e.Parameter;
-
-            var currentView = SystemNavigationManager.GetForCurrentView();
-
-            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
-
         }
 
-        private void MeniStavkeListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ThisPage_BackRequested(object sender, BackRequestedEventArgs e)
         {
 
-            String kliknuta = e.AddedItems[0].ToString();
-            if (kliknuta.Equals("Zaposlenici"))
-            {
-                this.Frame.Navigate(typeof(MenadzerZaposlenik), this.DataContext);
-            }
-
-
+            INavigationService navigate = new NavigationService();
+            navigate.Navigate(typeof(MenadzerNarudzba), this.DataContext);
         }
-
     }
 }

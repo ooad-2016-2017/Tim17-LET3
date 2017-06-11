@@ -31,6 +31,7 @@ namespace ProjekatMyPub.ViewModel
         public ICommand DugmeDodajPice_Click { get; set; }
         public ICommand DugmeNaruci_Click { get; set; }
         public ICommand DugmeRezervisiStol_Click { get; set; }
+        public ICommand DugmeOtkaziRezervaciju_Click { get; set; }
         public ICommand DugmeGlasajZaPjesmu_Click { get; set; }
 
         //
@@ -45,7 +46,13 @@ namespace ProjekatMyPub.ViewModel
         public Pjesma odabranaPjesma;
         public Int32 indeksOdabranogStola;
         public Stol odabraniStol;
+<<<<<<< HEAD
+        private Int32 rezervisaniBroj;
+        private Boolean rezervisalaJednom;
         private bool jeLiOdabrana;
+=======
+        public bool jeLiOdabrana;
+>>>>>>> efadc4a9d152524d16cd68dca0a6f540df018794
         //
 
         public List<string> StavkeMenija
@@ -210,10 +217,28 @@ namespace ProjekatMyPub.ViewModel
             set
             {
                 stolovi = value;
+                OnPropertyChanged("Stolovi");
             }
         }
 
+<<<<<<< HEAD
         public bool JeLiOdabrana { get => jeLiOdabrana; set => jeLiOdabrana = value; }
+        public Int32 RezervisaniBroj { get => rezervisaniBroj; set => rezervisaniBroj = value; }
+        public bool RezervisalaJednom { get => rezervisalaJednom; set => rezervisalaJednom = value; }
+=======
+        public bool JeLiOdabrana
+        {
+            get
+            {
+                return jeLiOdabrana;
+            }
+
+            set
+            {
+                jeLiOdabrana = value;
+            }
+        }
+>>>>>>> efadc4a9d152524d16cd68dca0a6f540df018794
 
         public ViewModel3(LogInVM parent)
         {
@@ -246,8 +271,10 @@ namespace ProjekatMyPub.ViewModel
             //dio koda za formu KorisnikRezervacija
             Stolovi = new ObservableCollection<Stol>();
             Stolovi = DataSource.DataSource.DajSveStolove();
+            RezervisalaJednom = false;
 
             DugmeRezervisiStol_Click = new RelayCommand<object>(rezervisi);
+            DugmeOtkaziRezervaciju_Click = new RelayCommand<object>(otkazi_rezervaciju);
         }
 
         public void dodaj_stavku_narudzbe(object parameter)
@@ -263,17 +290,41 @@ namespace ProjekatMyPub.ViewModel
 
         public void izvrsi_narudzbu(object parameter)
         {
-            if(IndeksOdabranogStola!=-1)
+            
+        }
+
+        public async void rezervisi(object parameter)
+        {
+            if (IndeksOdabranogStola != -1 && !RezervisalaJednom)
             {
-                OdabraniStol = Stolovi.ElementAt<Stol>(IndeksOdabranogStola);
+                OdabraniStol = Stolovi.ElementAt(IndeksOdabranogStola);
                 OdabraniStol.DaLiJeZauzet = true;
+                OdabraniStol.Zauzet = "ZAUZET";
+                OdabraniStol.IzvrsilaRezervaciju = Parent.Korisnik;
+                Stolovi[IndeksOdabranogStola] = OdabraniStol;
+                RezervisaniBroj = IndeksOdabranogStola;
+                RezervisalaJednom = true;
                 navigationService.Navigate(typeof(KorisnikRezervacija), this);
+            }
+            else if(RezervisalaJednom)
+            {
+                var dialog = new MessageDialog("Već ste rezervisali drugi stol.", "Neuspješna rezervacija!");
+                await dialog.ShowAsync();
             }
         }
 
-        public void rezervisi(object parameter)
+        public void otkazi_rezervaciju(object parameter)
         {
-
+            if(!RezervisalaJednom)
+            {
+                RezervisalaJednom = false;
+                OdabraniStol.DaLiJeZauzet = false;
+                OdabraniStol.Zauzet = "SLOBODAN";
+                OdabraniStol.IzvrsilaRezervaciju = null;
+                Stolovi[RezervisaniBroj] = OdabraniStol;
+                RezervisaniBroj = 0;
+                navigationService.Navigate(typeof(KorisnikRezervacija), this);
+            }
         }
 
         public async void glasaj(object parameter)
@@ -295,6 +346,7 @@ namespace ProjekatMyPub.ViewModel
                 if (!JeLiOdabrana)
                 {
                     GlasanePjesme.Add(OdabranaPjesma);
+                    Pjesme[IndeksOdabranePjesme].BrojGlasova++;
                     navigationService.Navigate(typeof(KorisnikJukebox), this);
                 }
             }

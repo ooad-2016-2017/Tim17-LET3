@@ -60,8 +60,8 @@ namespace ProjekatMyPub.DataSource
         {
            new Stol (false),
            new Stol(false),
-           new Stol(false),
-
+           new Stol(false)
+           
         };
 
         public static ObservableCollection<Stol> DajSveStolove()

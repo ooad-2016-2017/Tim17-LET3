@@ -153,12 +153,12 @@ namespace ProjekatMyPub.ViewModel
 
             if (Korisnik != null && Korisnik is Menadzer)
             {
-                KorisnikImePrezime = (Korisnik as Menadzer).Ime + " " + (Korisnik as Menadzer).Prezime;
+                KorisnikImePrezime = "Dobrodosli " + (Korisnik as Menadzer).Ime + " " + (Korisnik as Menadzer).Prezime;
                 navigationService.Navigate(typeof(MenadzerZaposlenik), new ViewModel1(this) );
             }
             else if (Korisnik != null && Korisnik is Musterija)
             {
-                KorisnikImePrezime = (Korisnik as Musterija).Username;
+                KorisnikImePrezime =  (Korisnik as Musterija).Username;
                 navigationService.Navigate(typeof(KorisnikPregledMenija), new ViewModel3(this));
             }
             
