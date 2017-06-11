@@ -29,10 +29,11 @@ namespace ProjekatMyPub.View
             DataContext = new LogInVM();
         }
 
-        private async void buttonNemateRacun_Click(object sender, RoutedEventArgs e)
-        {
+       // private async void buttonNemateRacun_Click(object sender, RoutedEventArgs e)
+       // {
 
-            //this.Frame.Navigate(typeof(Registracija));
-        }
+           // this.Frame.Navigate(typeof(Registracija));
+       // }
+    
     }
 }

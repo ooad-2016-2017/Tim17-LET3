@@ -29,15 +29,15 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="40*"></RowDefinition>
-            <RowDefinition Height="36*"></RowDefinition>
-            <RowDefinition Height="37*"></RowDefinition>
-            <RowDefinition Height="141*"></RowDefinition>
-            <RowDefinition Height="66*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
@@ -59,9 +59,9 @@
 
         <TextBlock x:Name="textBlockDobrodosli" Grid.Column="1" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Dobrodosli! " VerticalAlignment="Top" FontSize="20" Height="27" Width="126" xaml1:Grid.ColumnSpan="2"/>
         <TextBlock x:Name="textBlockOdaberiPjesmu" Grid.Column="1" HorizontalAlignment="Left" Margin="0,8,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Odaberite pjesmu: " VerticalAlignment="Top" FontSize="20" Height="26" Width="193" xaml1:Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="textBlockOdabranePjesme" Grid.Column="2" HorizontalAlignment="Left" Margin="0,8,-60,0" Grid.Row="2" TextWrapping="WrapWholeWords" Text="Pjesme za koje ste glasali: " VerticalAlignment="Top" FontSize="20" Height="56" Width="180"/>
+        <TextBlock x:Name="textBlockOdabranePjesme" Grid.Column="2" HorizontalAlignment="Left" Margin="0,8,-100,0" Grid.Row="2" TextWrapping="WrapWholeWords" Text="Pjesme za koje ste glasali: " VerticalAlignment="Top" FontSize="20" Height="56" Width="230"/>
 
-        <ListView x:Name="listViewListaPjesama" ItemTemplate="{StaticResource PjesmeListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Path=Pjesme, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  xaml1:Grid.Row="3" Grid.Column="1" VerticalAlignment="Stretch"  >
+        <ListView x:Name="listViewListaPjesama" ItemTemplate="{StaticResource PjesmeListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Path=Pjesme, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  xaml1:Grid.Row="3" Grid.Column="1" VerticalAlignment="Stretch"  SelectedIndex="{Binding IndeksOdabranePjesme, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListView.Template>
                 <ControlTemplate>
                     <Grid>
@@ -89,7 +89,7 @@
             </ListView.ItemContainerStyle>
         </ListView>
 
-        <ListView x:Name="listViewListaGlasanihPjesama" ItemTemplate="{StaticResource PjesmeListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Path=GlasanePjesme, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  xaml1:Grid.Row="3" Grid.Column="2" VerticalAlignment="Stretch"  >
+        <ListView x:Name="listViewListaGlasanihPjesama" ItemTemplate="{StaticResource PjesmeListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Path=GlasanePjesme, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  xaml1:Grid.Row="3" Grid.Column="2" VerticalAlignment="Stretch"  SelectedIndex="{Binding IndeksOdabranePjesme, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListView.Template>
                 <ControlTemplate>
                     <Grid>
@@ -117,7 +117,7 @@
             </ListView.ItemContainerStyle>
         </ListView>
 
-        <Button x:Name="buttonGlasaj" Content="Glasaj" HorizontalAlignment="Center" Margin="47,68,58,10" Grid.Row="4" Grid.Column="1" VerticalAlignment="Stretch" Command="{Binding Path=DugmeDodajGlasajZaPjesmu_Click}" Width="75"/>
+        <Button x:Name="buttonGlasaj" Content="Glasaj" HorizontalAlignment="Center" Margin="0,10" Grid.Row="4" Grid.Column="1" VerticalAlignment="Stretch" Command="{Binding Path=DugmeGlasajZaPjesmu_Click}" Width="130"/>
 
     </Grid>
 </Page>

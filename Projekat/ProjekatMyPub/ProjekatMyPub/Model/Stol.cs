@@ -14,6 +14,7 @@ namespace ProjekatMyPub.Model
         private List<Narudzba> narudzbe;
         private static Int32 zadnjiStol = 1;
         private String zauzet;
+        private Musterija izvrsilaRezervaciju;
 
         public Stol(Boolean daLiJeZauzet)
         {
@@ -36,6 +37,8 @@ namespace ProjekatMyPub.Model
             set
             {
                 daLiJeZauzet = value;
+                if (value == true) Zauzet = "ZAUZET";
+                else Zauzet = "SLOBODAN";
             }
         }
 
@@ -88,6 +91,18 @@ namespace ProjekatMyPub.Model
             set
             {
                 zauzet = value;
+            }
+        }
+
+        public Musterija IzvrsilaRezervaciju
+        {
+            get
+            {
+                return izvrsilaRezervaciju;
+            }
+            set
+            {
+                izvrsilaRezervaciju = value;
             }
         }
     }
