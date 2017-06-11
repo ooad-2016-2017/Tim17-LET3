@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 
 namespace ProjekatMyPub.ViewModel
@@ -30,7 +31,7 @@ namespace ProjekatMyPub.ViewModel
         public ICommand DugmeDodajPice_Click { get; set; }
         public ICommand DugmeNaruci_Click { get; set; }
         public ICommand DugmeRezervisiStol_Click { get; set; }
-        public ICommand DugmeDodajGlasajZaPjesmu_Click { get; set; }
+        public ICommand DugmeGlasajZaPjesmu_Click { get; set; }
 
         //
         public event PropertyChangedEventHandler PropertyChanged;
@@ -40,6 +41,11 @@ namespace ProjekatMyPub.ViewModel
         }
         public Int32 indeksOdabranogPica;
         public Pice odabranoPice;
+        public Int32 indeksOdabranePjesme;
+        public Pjesma odabranaPjesma;
+        public Int32 indeksOdabranogStola;
+        public Stol odabraniStol;
+        private bool jeLiOdabrana;
         //
 
         public List<string> StavkeMenija
@@ -120,6 +126,60 @@ namespace ProjekatMyPub.ViewModel
             }
         }
 
+        public int IndeksOdabranePjesme
+        {
+            get
+            {
+                return indeksOdabranePjesme;
+            }
+
+            set
+            {
+                indeksOdabranePjesme = value;
+                OnPropertyChanged("IndexOdabranePjesme");
+            }
+        }
+
+        public Pjesma OdabranaPjesma
+        {
+            get
+            {
+                return odabranaPjesma;
+            }
+            set
+            {
+                odabranaPjesma = value;
+                OnPropertyChanged("OdabranaPjesma");
+            }
+        }
+
+        public int IndeksOdabranogStola
+        {
+            get
+            {
+                return indeksOdabranogStola;
+            }
+
+            set
+            {
+                indeksOdabranogStola = value;
+                OnPropertyChanged("IndexOdabranogStola");
+            }
+        }
+
+        public Stol OdabraniStol
+        {
+            get
+            {
+                return odabraniStol;
+            }
+            set
+            {
+                odabraniStol = value;
+                OnPropertyChanged("OdabraniStol");
+            }
+        }
+
         public ObservableCollection<Pjesma> Pjesme {
             get
             {
@@ -153,6 +213,8 @@ namespace ProjekatMyPub.ViewModel
             }
         }
 
+        public bool JeLiOdabrana { get => jeLiOdabrana; set => jeLiOdabrana = value; }
+
         public ViewModel3(LogInVM parent)
         {
             navigationService = new NavigationService();
@@ -167,7 +229,9 @@ namespace ProjekatMyPub.ViewModel
             NarucenaPica = new ObservableCollection<Pice>();
 
             Parent = parent;
-            //IndeksOdabranogPica = -1;
+            IndeksOdabranogPica = -1;
+            IndeksOdabranePjesme = -1;
+            IndeksOdabranogStola = -1;
 
             DugmeDodajPice_Click = new RelayCommand<object>(dodaj_stavku_narudzbe);
             DugmeNaruci_Click = new RelayCommand<object>(izvrsi_narudzbu);
@@ -177,7 +241,7 @@ namespace ProjekatMyPub.ViewModel
             GlasanePjesme = new ObservableCollection<Pjesma>();
             Pjesme = DataSource.DataSource.DajSvePjesme();
 
-            DugmeDodajGlasajZaPjesmu_Click = new RelayCommand<object>(glasaj);
+            DugmeGlasajZaPjesmu_Click = new RelayCommand<object>(glasaj);
 
             //dio koda za formu KorisnikRezervacija
             Stolovi = new ObservableCollection<Stol>();
@@ -192,7 +256,6 @@ namespace ProjekatMyPub.ViewModel
             {
                 OdabranoPice = Pica.ElementAt<Pice>(IndeksOdabranogPica);
                 NarucenaPica.Add(OdabranoPice);
-                //IndeksOdabranogPica = -1;
                 navigationService.Navigate(typeof(KorisnikPregledMenija), this);
             }
             
@@ -200,7 +263,12 @@ namespace ProjekatMyPub.ViewModel
 
         public void izvrsi_narudzbu(object parameter)
         {
-
+            if(IndeksOdabranogStola!=-1)
+            {
+                OdabraniStol = Stolovi.ElementAt<Stol>(IndeksOdabranogStola);
+                OdabraniStol.DaLiJeZauzet = true;
+                navigationService.Navigate(typeof(KorisnikRezervacija), this);
+            }
         }
 
         public void rezervisi(object parameter)
@@ -208,9 +276,28 @@ namespace ProjekatMyPub.ViewModel
 
         }
 
-        public void glasaj(object parameter)
+        public async void glasaj(object parameter)
         {
-
+            if (IndeksOdabranePjesme != -1)
+            {
+                OdabranaPjesma = Pjesme.ElementAt<Pjesma>(IndeksOdabranePjesme);
+                JeLiOdabrana = false;
+                foreach (Pjesma mojaPjesma in GlasanePjesme)
+                {
+                    if (mojaPjesma == OdabranaPjesma)
+                    {
+                        var dialog = new MessageDialog("Već ste glasali za tu pjesmu.", "Neuspješno glasanje!");
+                        await dialog.ShowAsync();
+                        JeLiOdabrana = true;
+                        break;
+                    }
+                }
+                if (!JeLiOdabrana)
+                {
+                    GlasanePjesme.Add(OdabranaPjesma);
+                    navigationService.Navigate(typeof(KorisnikJukebox), this);
+                }
+            }
         }
     }
 }
