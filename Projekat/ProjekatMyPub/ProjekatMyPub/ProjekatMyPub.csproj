@@ -105,6 +105,7 @@
     <Compile Include="Model\Korisnik.cs" />
     <Compile Include="Model\Menadzer.cs" />
     <Compile Include="Model\Musterija.cs" />
+    <Compile Include="Model\Nabavka.cs" />
     <Compile Include="Model\Narudzba.cs" />
     <Compile Include="Model\Pice.cs" />
     <Compile Include="Model\Pjesma.cs" />
