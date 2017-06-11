@@ -10,12 +10,28 @@ namespace ProjekatMyPub.Model
     public class Playlista
     {
         private String naziv;
-        private ObservableCollection<Pjesma> pjesme = new ObservableCollection<Pjesma>();
+        private ObservableCollection<Pjesma> pjesme;
+        private static Int32 zadnjiId = 1;
+        private Int32 id;
 
         public Playlista(String naziv, ObservableCollection<Pjesma> pjesme)
         {
             Naziv = naziv;
             Pjesme = pjesme;
+            Id = zadnjiId++;
+        }
+
+        public Int32 Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
         }
 
         public string Naziv

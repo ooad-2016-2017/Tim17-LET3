@@ -20,13 +20,12 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="{x:Bind ImeStola}" HorizontalAlignment="Center"></TextBlock>
-                <TextBlock Text="-" HorizontalAlignment="Center"></TextBlock>
-                <TextBlock Text="{x:Bind DaLiJeZauzet}" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Text="{x:Bind ImeStola}" Grid.Column="0" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Text="{x:Bind Zauzet}" Grid.Column="1" HorizontalAlignment="Center"></TextBlock>
             </Grid>
         </DataTemplate>
 
-        <DataTemplate x:Key="RacunListTemplate" x:DataType="models:Pice">
+        <DataTemplate x:Key="RacunListTemplate" x:DataType="models:StavkaNarudzbe">
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -37,7 +36,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="{x:Bind Naziv}" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Text="{x:Bind Pice.Naziv}" HorizontalAlignment="Center"></TextBlock>
                 <TextBlock Text="{x:Bind Kolicina}" HorizontalAlignment="Center"></TextBlock>
                 <TextBlock Text="{x:Bind Cijena}" HorizontalAlignment="Center"></TextBlock>
             </Grid>
@@ -62,10 +61,11 @@
 
         <Grid.ColumnDefinitions>
 
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
 
         </Grid.ColumnDefinitions>
@@ -78,6 +78,7 @@
             x:Name="MeniZaposlenikListView"
             Grid.Row="1"
             IsItemClickEnabled="true"
+            ItemsSource="{Binding StavkeMenija}"
             SelectionChanged="MeniZaposlenikListView_SelectionChanged" Width="101"
             >
 
@@ -87,10 +88,10 @@
 
         </SplitView>
 
-        <TextBlock  HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" Text="Konobar:" VerticalAlignment="Top" FontSize="20" Grid.ColumnSpan="2" Width="153"/>
-        <TextBlock  HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" Grid.Column="0" TextWrapping="Wrap" Grid.ColumnSpan="2" Text="Lista Stolova" VerticalAlignment="Top" FontSize="20" Width="153"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" TextWrapping="Wrap" Text="{Binding Path=Parent.KorisnikImePrezime}" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="2" Text="Lista Stolova" VerticalAlignment="Top" FontSize="20"/>
 
-        <ListView x:Name="listView" ItemTemplate="{StaticResource StoloviListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Stolovi}"  HorizontalAlignment="Stretch"  Grid.Row="3" Grid.Column="0" VerticalAlignment="Stretch"  Margin="10,5,10,0"  Grid.RowSpan="5" Grid.ColumnSpan="2" >
+        <ListView x:Name="listView" ItemTemplate="{StaticResource StoloviListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Stolovi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="3" Grid.Column="1" VerticalAlignment="Stretch"  Margin="10,5,10,0"  Grid.RowSpan="5" Grid.ColumnSpan="2" SelectedIndex="{Binding Path=IndeksOdabranogStola, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
             <ListView.Template>
                 <ControlTemplate>
                     <Grid>
@@ -118,9 +119,10 @@
 
         </ListView>
 
-        <Button Content="Odgovori na narudzbu" Grid.Row="8" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="Auto" Command="{Binding DugmeOdgovoriNaNarudzbu}"/>
-        <TextBlock x:Name="textBlockRacunStola" Margin="0,10.4,5,0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Racun stola: " VerticalAlignment="Top" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="2" FontSize="20"/>
-        <ListView x:Name="listView1" ItemTemplate="{StaticResource RacunListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Stol.Narudzbe}"  HorizontalAlignment="Stretch"  Grid.Row="3" Grid.Column="2" VerticalAlignment="Stretch"  Margin="10,5,10,0"  Grid.RowSpan="5" Grid.ColumnSpan="3" >
+        <Button Content="Odgovori na narudzbu" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="3"  HorizontalAlignment="Center" VerticalAlignment="Top" Width="Auto" Command="{Binding DugmeOdgovoriNaNarudzbu}"/>
+        <Button Content="Daj Racun" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Top" Width="Auto" Command="{Binding DugmeDajRacun}"/>
+        <TextBlock x:Name="textBlockRacunStola" Margin="0,10.4,5,0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Racun stola: " VerticalAlignment="Top" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="3" FontSize="20"/>
+        <ListView x:Name="listView1" ItemTemplate="{StaticResource RacunListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Stol.Narudzbe, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="3" Grid.Column="3" VerticalAlignment="Stretch"  Margin="10,5,10,0"  Grid.RowSpan="5" Grid.ColumnSpan="3" >
             <ListView.Template>
                 <ControlTemplate>
                     <Grid>

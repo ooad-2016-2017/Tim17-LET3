@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjekatMyPub.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -29,39 +30,37 @@ namespace ProjekatMyPub.View
 
 
             // DataContext = new ViewModel2();
-            
-            String Stolovi = "Stolovi";
-            String Playliste = "Playliste";
-            MeniZaposlenikListView.Items.Add(Stolovi);
-            MeniZaposlenikListView.Items.Add(Playliste);
 
             NavigationCacheMode = NavigationCacheMode.Required;
-            
         }
 
-        
         private void ZaposlenikPlaylistaHamburger_Click(object sender, RoutedEventArgs e)
         {
             ZaposlenikSplitView.IsPaneOpen = !ZaposlenikSplitView.IsPaneOpen;
         }
 
-        
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var currentView = SystemNavigationManager.GetForCurrentView();
-            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
-        }
 
+            this.DataContext = (ViewModel2)e.Parameter;
+
+            var currentView = SystemNavigationManager.GetForCurrentView();
+
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+
+        }
 
         private void MeniZaposlenikListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             String kliknuta = e.AddedItems[0].ToString();
             if (kliknuta.Equals("Stolovi"))
             {
-                this.Frame.Navigate(typeof(ZaposlenikStolovi));
+                this.Frame.Navigate(typeof(ZaposlenikStolovi), this.DataContext);
             }
 
+
         }
-        
+
     }
 }

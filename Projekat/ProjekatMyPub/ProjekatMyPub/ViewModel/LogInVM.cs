@@ -161,13 +161,13 @@ namespace ProjekatMyPub.ViewModel
                 KorisnikImePrezime = (Korisnik as Musterija).Username;
                 navigationService.Navigate(typeof(KorisnikPregledMenija), new ViewModel3(this));
             }
-            /*
+            
             else if (Korisnik != null && Korisnik is Zaposlenik)
             {
-                KorisnikImePrezime = (Korisnik as Zaposlenik).Ime + " " + (Korisnik as Zaposlenik).Prezime;
+                KorisnikImePrezime = "Konobar: " + (Korisnik as Zaposlenik).Ime + " " + (Korisnik as Zaposlenik).Prezime;
                 navigationService.Navigate(typeof(ZaposlenikStolovi), new ViewModel2(this));
             }
-            */
+            
             else
             {
                 var dialog = new MessageDialog("Pogrešno korisničko ime/šifra!", "Neuspješnaprijava");

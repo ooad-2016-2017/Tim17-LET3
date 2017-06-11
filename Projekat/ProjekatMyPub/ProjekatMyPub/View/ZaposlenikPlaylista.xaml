@@ -10,7 +10,7 @@
 
     <Page.Resources>
 
-        <DataTemplate x:Key="PlaylistaListTemplate" x:DataType="models:Pjesma">
+        <DataTemplate x:Key="PlaylistaListTemplate" x:DataType ="models:Pjesma">
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -19,10 +19,21 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{x:Bind Izvodjac}" HorizontalAlignment="Center" Grid.Column="0"></TextBlock>
+                <TextBlock Text="{x:Bind Naziv}" HorizontalAlignment="Center" Grid.Column="1"></TextBlock>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="PlaylisteListTemplate" x:DataType ="models:Playlista">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="{x:Bind Izvodjac}" HorizontalAlignment="Center"></TextBlock>
-                <TextBlock Text="-" HorizontalAlignment="Center"></TextBlock>
                 <TextBlock Text="{x:Bind Naziv}" HorizontalAlignment="Center"></TextBlock>
             </Grid>
         </DataTemplate>
@@ -32,17 +43,19 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
 
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*" />
-
-
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
 
@@ -54,6 +67,7 @@
             x:Name="MeniZaposlenikListView"
             Grid.Row="1"
             IsItemClickEnabled="true"
+            ItemsSource="{Binding Path=StavkeMenija}"        
             SelectionChanged="MeniZaposlenikListView_SelectionChanged" Width="101"
             >
 
@@ -63,9 +77,9 @@
 
         </SplitView>
 
-        <TextBlock x:Name="textBlockZaposlenikPlaylistaIme" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" Text="Konobar:" VerticalAlignment="Top" FontSize="20"/>
-        <TextBlock x:Name="textBlockZaposlenikPlayslistaOdaberi" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" Grid.Column="0" TextWrapping="Wrap" Text="Odaberi playlistu:" VerticalAlignment="Top" FontSize="20"/>
-        <ListView x:Name="listViewZaposlenikPlaylista" ItemTemplate="{StaticResource PlaylistaListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Playlista.Pjesme}"  HorizontalAlignment="Stretch"  Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch"  Margin="10,5,10,0"  Grid.RowSpan="2" Grid.ColumnSpan="3" >
+        <TextBlock x:Name="textBlockZaposlenikPlaylistaIme" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"  TextWrapping="Wrap" Text="{Binding Path=Parent.KorisnikImePrezime}" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="textBlockZaposlenikPlayslistaOdaberi" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" TextWrapping="Wrap" Text="Playliste:" VerticalAlignment="Top" FontSize="20"/>
+        <ListView x:Name="listViewZaposlenikPlaylista" ItemTemplate="{StaticResource PlaylistaListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Path=Playlista.Pjesme, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="3" Grid.Column="3"  VerticalAlignment="Top"  Margin="10,0"  Grid.RowSpan="1" Grid.ColumnSpan="2"  >
             <ListView.Template>
                 <ControlTemplate>
                     <Grid>
@@ -93,9 +107,36 @@
 
         </ListView>
 
-        <Button  Content="Azuriraj" Grid.Row ="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,30,10,0" Width ="150" Command="{Binding DugmeAzuriraj}"/>
-        <Button  Content="Kreiraj playlist-u" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Center" Command="{Binding DugmeKreirajPlaylistu}"/>
+        <ListView x:Name="listViewZaposlenikPlayliste" ItemTemplate="{StaticResource PlaylisteListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Playliste, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="3" Grid.Column="1" VerticalAlignment="Stretch"  Margin="10,5,10,0"  Grid.RowSpan="1" Grid.ColumnSpan="2" SelectedIndex="{Binding Path=IndeksOdabranePlayliste, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+            <ListView.Template>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock HorizontalAlignment="Center" Grid.Column="0">Naziv</TextBlock>
+                        </Grid>
+                        <ItemsPresenter Grid.Row="1"></ItemsPresenter>
+                    </Grid>
+                </ControlTemplate>
+            </ListView.Template>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+
+        </ListView>
+
+        <Button  Content="Azuriraj" Grid.Row ="4" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,10,10,0" Width ="150" Command="{Binding DugmeAzurirajPlaylistu}"/>
+        <Button  Content="Kreiraj playlist-u" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="10,10,10,0" Grid.Row="4" VerticalAlignment="Center" Command="{Binding DugmeKreirajPlaylistu}"/>
+        <Button  Content="Odaberi" Grid.Column="0"  HorizontalAlignment="Center" Margin="10,10,10,0" Grid.Row="4" VerticalAlignment="Center" Command="{Binding DugmeOdaberi}"/>
 
     </Grid>
-    
+
 </Page>

@@ -41,6 +41,19 @@ namespace ProjekatMyPub.Model
             }
         }
 
+        public Int32 Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
+
         public string Izvodjac
         {
             get
@@ -54,18 +67,7 @@ namespace ProjekatMyPub.Model
             }
         }
 
-        public int Id
-        {
-            get
-            {
-                return id;
-            }
-
-            set
-            {
-                id = value;
-            }
-        }
+ 
 
         public int BrojGlasova
         {
@@ -80,11 +82,11 @@ namespace ProjekatMyPub.Model
             }
         }
 
-        public Pjesma(String filePath, Int32 id)
+        public Pjesma(String filePath)
         {
             FilePath = filePath;
-            Naziv = Naziv;
-            Izvodjac = Izvodjac;
+            Naziv = "";
+            Izvodjac = "";
             Id = zadnjiId;
             zadnjiId++;
         }

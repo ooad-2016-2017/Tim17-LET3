@@ -119,7 +119,7 @@ namespace ProjekatMyPub.DataSource
         private static ObservableCollection<Playlista> playliste = new ObservableCollection<Playlista>()
         {
            new Playlista("playlista1",  pjesme),
-           new Playlista("playlista2", new ObservableCollection<Pjesma>(){new Pjesma("pjesma5", 5), new Pjesma("pjesma6", 6)})
+           new Playlista("playlista2", new ObservableCollection<Pjesma>(){new Pjesma("pjesma5"), new Pjesma("pjesma6")})
 
         };
 

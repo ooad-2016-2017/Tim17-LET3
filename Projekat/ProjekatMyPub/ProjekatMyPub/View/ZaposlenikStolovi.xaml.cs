@@ -1,10 +1,12 @@
-﻿using System;
+﻿using ProjekatMyPub.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,15 +28,7 @@ namespace ProjekatMyPub.View
         {
             this.InitializeComponent();
 
-            // DataContext = new ViewModel2();
-            /*
-            String Stolovi = "Stolovi";
-            String Playliste = "Playliste";
-            MeniZaposlenikListView.Items.Add(Stolovi);
-            MeniZaposlenikListView.Items.Add(Playliste);
-
             NavigationCacheMode = NavigationCacheMode.Required;
-            */
         }
 
         private void ZaposlenikStoloviHamburger_Click(object sender, RoutedEventArgs e)
@@ -42,15 +36,29 @@ namespace ProjekatMyPub.View
             ZaposlenikStoloviSplitView.IsPaneOpen = !ZaposlenikStoloviSplitView.IsPaneOpen;
         }
 
+
+
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+
+            this.DataContext = (ViewModel2)e.Parameter;
+
+            var currentView = SystemNavigationManager.GetForCurrentView();
+
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+
+        }
+
         private void MeniZaposlenikListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
             String kliknuta = e.AddedItems[0].ToString();
-            if (kliknuta.Equals("Playlista"))
+            if (kliknuta.Equals("Playliste"))
             {
-                this.Frame.Navigate(typeof(ZaposlenikPlaylista));
+                this.Frame.Navigate(typeof(ZaposlenikPlaylista), this.DataContext);
             }
-            
+
 
         }
     }
