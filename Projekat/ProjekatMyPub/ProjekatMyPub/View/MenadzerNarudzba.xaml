@@ -79,8 +79,8 @@
 
         </SplitView>
 
-        <TextBlock  HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="0" Grid.Column="1"  TextWrapping="Wrap"  VerticalAlignment="Top"  Text="Dobrodošli " />
-        <TextBlock  HorizontalAlignment="Left" Margin="5,10,0,0" Grid.Row="0" Grid.Column="2"  TextWrapping="Wrap"  VerticalAlignment="Top"  Text="{Binding Parent.KorisnikImePrezime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+       
+        <TextBlock  HorizontalAlignment="Left" Margin="5,10,0,0" Grid.Row="0" Grid.Column="1"  TextWrapping="Wrap"  VerticalAlignment="Top"  Text="{Binding Parent.KorisnikImePrezime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="3" />
         <TextBlock x:Name="textBlockMenadzerNarudzbaProizvodi" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" Text="Proizvodi:" VerticalAlignment="Top" FontSize="20"/>
         <TextBlock x:Name="textBlockMenadzerNarudzbaZaNaruciti" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" Grid.Column="2" TextWrapping="Wrap" Text="Za naruciti:" VerticalAlignment="Top" FontSize="20"/>
 
