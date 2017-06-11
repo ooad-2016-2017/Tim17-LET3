@@ -16,8 +16,6 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
 
         </Grid.RowDefinitions>
 
@@ -27,23 +25,17 @@
 
         </Grid.ColumnDefinitions>
 
-        <!--
+
         <TextBlock x:Name="labelaRegistracijaKorisnika" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="5,10,0,0" TextWrapping="Wrap" Text="Registracija korisnika" VerticalAlignment="Top" Foreground ="#4f7bc1"  FontFamily="Verdana" FontSize="25" Height="30" Width="Auto" />
-        <TextBlock x:Name="labelaRegistracijaIme" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" Text="Ime:" VerticalAlignment="Top" Foreground ="Black"  FontFamily="Verdana" FontSize="20" Height="24" Width="Auto" />
-        <TextBlock x:Name="labelaRegistracijaPrezime" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" Text="Prezime:" VerticalAlignment="Top" Foreground ="Black"  FontFamily="Verdana" FontSize="20" Height="24" Width="Auto" />
-        <TextBlock x:Name="labelaRegistracijaEmail" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" Text="E-mail:" VerticalAlignment="Top" Foreground ="Black"  FontFamily="Verdana" FontSize="20" Height="24" Width="Auto" />
-        <TextBlock x:Name="labelaRegistracijaUsername" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" Text="Username:" VerticalAlignment="Top" Foreground ="Black"  FontFamily="Verdana" FontSize="20" Height="24" Width="Auto" />
-        <TextBlock x:Name="labelaRegistracijaPassword" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top" Foreground ="Black"  FontFamily="Verdana" FontSize="20" Height="24" Width="Auto" />
-        <TextBlock x:Name="labelaRegistracijaConfirmPassword" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" Text="Potvrdi password:" VerticalAlignment="Top" Foreground ="Black"  FontFamily="Verdana" FontSize="20" Height="24" Width="Auto" />
-        <TextBox x:Name="textBoxIme" Grid.Row ="1"   Grid.Column="1"  Width="{Binding ElementName=kolona2,Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,0,0,0" Text="" MaxWidth="300" Height="40"/>
-        <TextBox x:Name="textBoxPrezime" Grid.Row ="2"  Grid.Column="1"  Width="{Binding ElementName=kolona2,Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,0,0,0" Text="" MaxWidth="300" Height="40"/>
-        <TextBox x:Name="textBoxEmail" Grid.Row ="3"   Grid.Column="1"  Width="{Binding ElementName=kolona2,Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,0,0,0" Text="" MaxWidth="300" Height="40"/>
-        <TextBox x:Name="textBoxUsername" Grid.Row ="4"  Grid.Column="1"  Width="{Binding ElementName=kolona2,Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,0,0,0" Text="" MaxWidth="300" Height="40"/>
-        <TextBox x:Name="textBoxPassword" Grid.Row ="5"  Grid.Column="1"  Width="{Binding ElementName=kolona2,Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,0,0,0" Text="" MaxWidth="300" Height="40"/>
-        <TextBox x:Name="textBoxConfirmPassword" Grid.Row ="6" Grid.Column="1"  Width="{Binding ElementName=kolona2,Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,0,0,0" Text="" MaxWidth="300" Height="40"/>
-        <Button x:Name="buttonRegistrujSe" Content="Registruj se" Grid.Row="7" Grid.Column="0"  HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
-        -->
-
-
+        <TextBlock x:Name="labelaRegistracijaEmail" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" Text="E-mail:" VerticalAlignment="Top" Foreground ="Black"  FontFamily="Verdana" FontSize="20" Height="24" Width="Auto" />
+        <TextBlock x:Name="labelaRegistracijaUsername" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" Text="Username:" VerticalAlignment="Top" Foreground ="Black"  FontFamily="Verdana" FontSize="20" Height="24" Width="Auto" />
+        <TextBlock x:Name="labelaRegistracijaPassword" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" Text="Password:" VerticalAlignment="Top" Foreground ="Black"  FontFamily="Verdana" FontSize="20" Height="24" Width="Auto" />
+        <TextBlock x:Name="labelaRegistracijaConfirmPassword" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" Text="Potvrdi password:" VerticalAlignment="Top" Foreground ="Black"  FontFamily="Verdana" FontSize="20" Height="24" Width="Auto" />
+        <TextBox x:Name="textBoxEmail" Grid.Row ="1"   Grid.Column="1"  Width="{Binding ElementName=kolona2,Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,0,0,0" MaxWidth="300" Height="40" Text="{Binding Musterija.EMail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:Name="textBoxUsername" Grid.Row ="2"  Grid.Column="1"  Width="{Binding ElementName=kolona2,Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,0,0,0" MaxWidth="300" Height="40" Text="{Binding Musterija.Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <PasswordBox x:Name="textBoxPassword" Grid.Row ="3"  Grid.Column="1"  Width="{Binding ElementName=kolona2,Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,0,0,0" MaxWidth="300" Height="40" Password="{Binding Musterija.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <PasswordBox x:Name="textBoxConfirmPassword" Grid.Row ="4" Grid.Column="1"  Width="{Binding ElementName=kolona2,Path=ActualWidth}" HorizontalAlignment="Left" Margin="0,0,0,0" MaxWidth="300" Height="40"  Password="{Binding PotvrdaPassworda, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Registruj se" Grid.Row="5" Grid.Column="0"  HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Command="{Binding Path=RegistrujSe_Click}" />
+        
     </Grid>
 </Page>
