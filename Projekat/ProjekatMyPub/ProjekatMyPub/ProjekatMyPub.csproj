@@ -125,6 +125,9 @@
     <Compile Include="View\DodajZaposlenika.xaml.cs">
       <DependentUpon>DodajZaposlenika.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\FormaStavkaNabavke.xaml.cs">
+      <DependentUpon>FormaStavkaNabavke.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\KorisnikJukebox.xaml.cs">
       <DependentUpon>KorisnikJukebox.xaml</DependentUpon>
     </Compile>
@@ -183,6 +186,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DodajZaposlenika.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FormaStavkaNabavke.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

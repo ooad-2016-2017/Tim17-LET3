@@ -58,5 +58,10 @@ namespace ProjekatMyPub.View
 
 
         }
+        /*
+        private void buttonaMenadzerNarudzbaFormiraj_Click(object sender, RoutedEventArgs e)
+        {
+
+        }*/
     }
 }

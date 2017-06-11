@@ -36,7 +36,7 @@ namespace ProjekatMyPub.Model
             set
             {
                 kolicina = value;
-                cijena = kolicina * pice.Cijena;
+                Cijena = kolicina * pice.Cijena;
             }
         }
 
