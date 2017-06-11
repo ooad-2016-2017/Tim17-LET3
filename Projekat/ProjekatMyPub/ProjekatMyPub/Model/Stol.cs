@@ -13,6 +13,7 @@ namespace ProjekatMyPub.Model
         private String imeStola;
         private List<Narudzba> narudzbe;
         private static Int32 zadnjiStol = 1;
+        private String zauzet;
 
         public Stol(Boolean daLiJeZauzet)
         {
@@ -21,7 +22,8 @@ namespace ProjekatMyPub.Model
             ImeStola = "Stol " + BrojStola;
             Narudzbe = new List<Narudzba>();
             zadnjiStol++;
-
+            if (daLiJeZauzet) Zauzet = "ZAUZET";
+            else Zauzet = "SLOBODAN";
         }
 
         public Boolean DaLiJeZauzet
@@ -76,6 +78,17 @@ namespace ProjekatMyPub.Model
             }
         }
 
+        public String Zauzet
+        {
+            get
+            {
+                return zauzet;
+            }
 
+            set
+            {
+                zauzet = value;
+            }
+        }
     }
 }

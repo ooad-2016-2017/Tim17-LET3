@@ -89,5 +89,14 @@ namespace ProjekatMyPub.Model
             zadnjiId++;
         }
 
+        public Pjesma(String filePath, String imePjesme, String pjevac)
+        {
+            FilePath = filePath;
+            Naziv = imePjesme;
+            Izvodjac = pjevac;
+            Id = zadnjiId;
+            zadnjiId++;
+        }
+
     }
 }
