@@ -58,7 +58,7 @@
         <TextBlock x:Name="textBlockDobrodosli" Grid.Column="1" HorizontalAlignment="Left" Margin="0,7,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Dobrodosli! " VerticalAlignment="Top" FontSize="20"/>
         <TextBlock  Grid.Column="2" HorizontalAlignment="Left" Margin="0,7,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Path=ImePrezimeKorisnika}" VerticalAlignment="Top" FontSize="20" />
 
-        <ListView x:Name="listViewListaPica" ItemTemplate="{StaticResource PicaListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Path=Pica, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="2" Grid.Column="1" VerticalAlignment="Stretch"  Margin="0,5,0,0"  Grid.RowSpan="2"  >
+        <ListView x:Name="listViewListaPica" ItemTemplate="{StaticResource PicaListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Path=Pica, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="2" Grid.Column="1" VerticalAlignment="Stretch"  Margin="0,5,0,0"  Grid.RowSpan="2" SelectedIndex="{Binding IndexOdabranogPica, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListView.Template>
                 <ControlTemplate>
                     <Grid>
@@ -86,7 +86,7 @@
             </ListView.ItemContainerStyle>
         </ListView>
 
-        <ListView x:Name="listViewListaNarucenihPica" ItemTemplate="{StaticResource PicaListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Path=NarucenaPica, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="2" Grid.Column="2" VerticalAlignment="Stretch"  Margin="0,5,0,0"  Grid.RowSpan="2" >
+        <ListView x:Name="listViewListaNarucenihPica" ItemTemplate="{StaticResource PicaListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Path=NarucenaPica, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="2" Grid.Column="2" VerticalAlignment="Stretch"  Margin="0,5,0,0"  Grid.RowSpan="2" SelectedIndex="{Binding IndexOdabranogPica, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListView.Template>
                 <ControlTemplate>
                     <Grid>

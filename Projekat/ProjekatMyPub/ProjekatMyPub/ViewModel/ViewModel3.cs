@@ -1,18 +1,21 @@
 ﻿using ProjekatMyPub.Helper;
 using ProjekatMyPub.Model;
+using ProjekatMyPub.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Windows.UI.Popups;
+using Windows.UI.Xaml.Controls;
 
 namespace ProjekatMyPub.ViewModel
 {
-    class ViewModel3
+    class ViewModel3 : INotifyPropertyChanged
     {
+        public LogInVM Parent { get; set; }
         public List<String> stavkeMenija;
         private String stavka1 = "Rezervacija";
         private String stavka2 = "Meni";
@@ -20,8 +23,24 @@ namespace ProjekatMyPub.ViewModel
         public ObservableCollection<Pice> pica;
         public ObservableCollection<Pice> narucenaPica;
         public String imePrezimeKorisnika;
+        public ObservableCollection<Pjesma> pjesme;
+        public ObservableCollection<Pjesma> glasanePjesme;
+        public ObservableCollection<Stol> stolovi;
         public INavigationService navigationService;
         public ICommand DugmeDodajPice_Click { get; set; }
+        public ICommand DugmeNaruci_Click { get; set; }
+        public ICommand DugmeRezervisiStol_Click { get; set; }
+        public ICommand DugmeDodajGlasajZaPjesmu_Click { get; set; }
+
+        //
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        private Int32 indeksOdabranogPica;
+        private Pice odabranoPice;
+        //
 
         public List<string> StavkeMenija
         {
@@ -59,6 +78,7 @@ namespace ProjekatMyPub.ViewModel
             set
             {
                 narucenaPica = value;
+                OnPropertyChanged("NarucenaPica");
             }
         }
 
@@ -75,15 +95,67 @@ namespace ProjekatMyPub.ViewModel
             }
         }
 
-        // dodati button selectionchanged kao u VM1
-        //public String passwordKorisnika;
+        public int IndeksOdabranogPica {
+            get
+            {
+                return indeksOdabranogPica;
+            }
 
-        
+            set
+            {
+                indeksOdabranogPica = value;
+                OnPropertyChanged("IndexOdabranogPica");
+            }
+        }
 
-        //public string PasswordKorisnika { get => passwordKorisnika; set => passwordKorisnika = value; }
+        public Pice OdabranoPice {
+            get
+            {
+                return odabranoPice;
+            }
+            set
+            {
+                odabranoPice = value;
+                OnPropertyChanged("OdabranoPice");
+            }
+        }
+
+        public ObservableCollection<Pjesma> Pjesme {
+            get
+            {
+                return pjesme;
+            }
+            set
+            {
+                pjesme = value;
+            }
+        }
+        public ObservableCollection<Pjesma> GlasanePjesme {
+            get
+            { 
+                return glasanePjesme;
+            }
+            set
+            {
+                glasanePjesme = value;
+            }
+        }
+
+        public ObservableCollection<Stol> Stolovi
+        {
+            get
+            {
+                return stolovi;
+            }
+            set
+            {
+                stolovi = value;
+            }
+        }
 
         public ViewModel3(LogInVM parent)
         {
+            navigationService = new NavigationService();
             StavkeMenija = new List<String>();
             StavkeMenija.Add(stavka1);
             StavkeMenija.Add(stavka2);
@@ -94,15 +166,51 @@ namespace ProjekatMyPub.ViewModel
             Pica = DataSource.DataSource.DajSvaPica();
             NarucenaPica = new ObservableCollection<Pice>();
 
+            Parent = parent;
+            //IndeksOdabranogPica = -1;
+
             DugmeDodajPice_Click = new RelayCommand<object>(dodaj_stavku_narudzbe);
-            navigationService = new NavigationService();
+            DugmeNaruci_Click = new RelayCommand<object>(izvrsi_narudzbu);
+
+            //dio koda za formu KorisnikJukebox
+            Pjesme = new ObservableCollection<Pjesma>();
+            GlasanePjesme = new ObservableCollection<Pjesma>();
+            Pjesme = DataSource.DataSource.DajSvePjesme();
+
+            DugmeDodajGlasajZaPjesmu_Click = new RelayCommand<object>(glasaj);
+
+            //dio koda za formu KorisnikRezervacija
+            Stolovi = new ObservableCollection<Stol>();
+            Stolovi = DataSource.DataSource.DajSveStolove();
+
+            DugmeRezervisiStol_Click = new RelayCommand<object>(rezervisi);
         }
 
-        private async void dodaj_stavku_narudzbe(object sender)
+        public void dodaj_stavku_narudzbe(object parameter)
         {
-            var dialog = new MessageDialog("Pogrešno korisničko ime/šifra!", "Neuspješnaprijava");
+            if (IndeksOdabranogPica != -1)
+            {
+                OdabranoPice = Pica.ElementAt<Pice>(IndeksOdabranogPica);
+                NarucenaPica.Add(OdabranoPice);
+                //IndeksOdabranogPica = -1;
+                navigationService.Navigate(typeof(KorisnikPregledMenija), this);
+            }
+            
+        }
 
-            await dialog.ShowAsync();
+        public void izvrsi_narudzbu(object parameter)
+        {
+
+        }
+
+        public void rezervisi(object parameter)
+        {
+
+        }
+
+        public void glasaj(object parameter)
+        {
+
         }
     }
 }

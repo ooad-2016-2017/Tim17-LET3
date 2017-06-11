@@ -49,8 +49,15 @@ namespace ProjekatMyPub.View
 
         private void MeniStavkeListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-
+            String kliknuta = e.AddedItems[0].ToString();
+            if (kliknuta.Equals("Jukebox"))
+            {
+                this.Frame.Navigate(typeof(KorisnikJukebox), this.DataContext);
+            }
+            if (kliknuta.Equals("Rezervacija"))
+            {
+                this.Frame.Navigate(typeof(KorisnikRezervacija), this.DataContext);
+            }
         }
 
         
