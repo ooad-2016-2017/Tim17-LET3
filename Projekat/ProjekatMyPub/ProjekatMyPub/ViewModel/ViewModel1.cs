@@ -39,6 +39,7 @@ namespace ProjekatMyPub.ViewModel
         public Nabavka stavkaNabavke;
         public Int32 indexOdabranogPica;
         public Int32 indexOdabranogPicaIzNabavke;
+        public String textCijenaNabavke;
         private String stavka1 = "Zaposlenici";
         private String stavka2 = "Narudzba";
         public List<String> stavkeMenija;
@@ -51,6 +52,7 @@ namespace ProjekatMyPub.ViewModel
         public ICommand DodajStavku { get; set; }
         public ICommand ObrisiIzNabavke { get; set; }
         public ICommand NarudzbenicaDugme { get; set; }
+        public ICommand NaruciDugme { get; set; }
         public INavigationService navigationService { get; set; }
         
 
@@ -188,6 +190,19 @@ namespace ProjekatMyPub.ViewModel
             }
         }
 
+        public string TextCijenaNabavke
+        {
+            get
+            {
+                return textCijenaNabavke;
+            }
+
+            set
+            {
+                textCijenaNabavke = value;
+            }
+        }
+
         public ViewModel1(LogInVM parent)
         {
 
@@ -225,6 +240,7 @@ namespace ProjekatMyPub.ViewModel
             DodajStavku = new RelayCommand<object>(dodajstavku);
             ObrisiIzNabavke = new RelayCommand<object>(obrisiiznabavke);
             NarudzbenicaDugme = new RelayCommand<object>(formirajnarudzbenicu);
+            NaruciDugme = new RelayCommand<object>(naruci);
             AzurirajZaposlenikaAzuriraj = new RelayCommand<object>(azuriraj);
 
 
@@ -306,8 +322,16 @@ namespace ProjekatMyPub.ViewModel
 
         public void formirajnarudzbenicu(object parametar)
         {
-            
+            TextCijenaNabavke = "Ukupna cijena: " + Nabavka.dajCijenu().ToString();
 
+            navigationService.Navigate(typeof(NarudzbenicaForma), this);
+        }
+
+        public void naruci(object parametar)
+        {
+            Nabavka.StavkeNabavke.Clear();
+
+            navigationService.Navigate(typeof(MenadzerNarudzba), this);
         }
     }
 }

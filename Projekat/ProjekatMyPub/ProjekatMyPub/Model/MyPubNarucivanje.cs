@@ -66,5 +66,17 @@ namespace ProjekatMyPub.Model
             }
            
         }
+
+        public Decimal dajCijenu()
+        {
+            Decimal cijena = 0M;
+            foreach (Nabavka n in StavkeNabavke)
+            {
+                cijena += n.Cijena;
+            }
+
+            return cijena;
+
+        }
     }
 }

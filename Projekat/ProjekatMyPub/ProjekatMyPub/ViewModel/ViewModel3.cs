@@ -45,7 +45,7 @@ namespace ProjekatMyPub.ViewModel
         public Pjesma odabranaPjesma;
         public Int32 indeksOdabranogStola;
         public Stol odabraniStol;
-        private bool jeLiOdabrana;
+        public bool jeLiOdabrana;
         //
 
         public List<string> StavkeMenija
@@ -213,7 +213,18 @@ namespace ProjekatMyPub.ViewModel
             }
         }
 
-        public bool JeLiOdabrana { get => jeLiOdabrana; set => jeLiOdabrana = value; }
+        public bool JeLiOdabrana
+        {
+            get
+            {
+                return jeLiOdabrana;
+            }
+
+            set
+            {
+                jeLiOdabrana = value;
+            }
+        }
 
         public ViewModel3(LogInVM parent)
         {
