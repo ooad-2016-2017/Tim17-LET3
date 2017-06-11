@@ -3,6 +3,7 @@ using ProjekatMyPub.Model;
 using ProjekatMyPub.View;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,12 @@ namespace ProjekatMyPub.ViewModel
         #endregion
 
         public Korisnik korisnik;
+        public Musterija musterija;
+        public String potvrdaPassworda;
         public ICommand LogIn_Click { get; set; }
+        public ICommand RegistrujSe_Click { get; set; }
+        public ICommand NemateRacun_Click { get; set; }
+        public ObservableCollection<Korisnik> korisnici;
         public String korisnikImePrezime;
         public String korisnikUsername;
         public String korisnikPassword;
@@ -43,6 +49,47 @@ namespace ProjekatMyPub.ViewModel
             set
             {
                 korisnik = value;
+            }
+        }
+
+        public String PotvrdaPassworda
+        {
+            get
+            {
+                return potvrdaPassworda;
+            }
+
+            set
+            {
+                potvrdaPassworda = value;
+            }
+        }
+
+
+        public ObservableCollection<Korisnik> Korisnici
+        {
+            get
+            {
+                return korisnici;
+            }
+
+            set
+            {
+                korisnici = value;
+            }
+        }
+
+
+        public Musterija Musterija
+        {
+            get
+            {
+                return musterija;
+            }
+
+            set
+            {
+                musterija = value;
             }
         }
 
@@ -91,9 +138,14 @@ namespace ProjekatMyPub.ViewModel
         public LogInVM()
         {
             LogIn_Click = new RelayCommand<object>(logIn);
+            RegistrujSe_Click = new RelayCommand<object>(registrujSe);
+            NemateRacun_Click = new RelayCommand<object>(nemateRacun);
             navigationService = new NavigationService();
+            korisnici = new ObservableCollection<Korisnik>();
+            korisnici = DataSource.DataSource.DajSveKorisnike();
 
         }
+
 
         private async void logIn(object sender)
         {
@@ -101,12 +153,12 @@ namespace ProjekatMyPub.ViewModel
 
             if (Korisnik != null && Korisnik is Menadzer)
             {
-                KorisnikImePrezime = (Korisnik as Menadzer).Ime + " " + (Korisnik as Menadzer).Prezime;
+                KorisnikImePrezime = "Dobrodosli " + (Korisnik as Menadzer).Ime + " " + (Korisnik as Menadzer).Prezime;
                 navigationService.Navigate(typeof(MenadzerZaposlenik), new ViewModel1(this) );
             }
             else if (Korisnik != null && Korisnik is Musterija)
             {
-                KorisnikImePrezime = (Korisnik as Musterija).Username;
+                KorisnikImePrezime =  (Korisnik as Musterija).Username;
                 navigationService.Navigate(typeof(KorisnikPregledMenija), new ViewModel3(this));
             }
             /*
@@ -119,6 +171,33 @@ namespace ProjekatMyPub.ViewModel
             else
             {
                 var dialog = new MessageDialog("Pogrešno korisničko ime/šifra!", "Neuspješnaprijava");
+
+                await dialog.ShowAsync();
+            }
+        }
+
+        private void nemateRacun(object sender)
+        {
+            Musterija = new Musterija();
+
+            navigationService.Navigate(typeof(Registracija), this);
+
+        }
+
+        private async void registrujSe(object sender)
+        {
+            
+
+            if (PotvrdaPassworda == Musterija.Password)
+            {
+                korisnici.Add(Musterija);
+                navigationService.Navigate(typeof(Login));
+
+            }
+
+            else
+            {
+                var dialog = new MessageDialog("Ponovo potvrdite odabrani password!");
 
                 await dialog.ShowAsync();
             }

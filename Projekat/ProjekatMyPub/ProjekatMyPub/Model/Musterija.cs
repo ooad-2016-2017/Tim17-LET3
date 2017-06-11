@@ -16,6 +16,8 @@ namespace ProjekatMyPub.Model
             Vip = vip;
         }
 
+        public Musterija() : base() { }
+
         public bool Vip
         {
             get

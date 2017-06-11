@@ -23,12 +23,11 @@ namespace ProjekatMyPub.View
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Registracija : Page
+    public sealed partial class FormaStavkaNabavke : Page
     {
-        public Registracija()
+        public FormaStavkaNabavke()
         {
             this.InitializeComponent();
-
             var currentView = SystemNavigationManager.GetForCurrentView();
             currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
             SystemNavigationManager.GetForCurrentView().BackRequested += ThisPage_BackRequested;
@@ -37,15 +36,14 @@ namespace ProjekatMyPub.View
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            this.DataContext = (LogInVM)e.Parameter;
+            this.DataContext = (ViewModel1)e.Parameter;
         }
 
         private void ThisPage_BackRequested(object sender, BackRequestedEventArgs e)
         {
 
             INavigationService navigate = new NavigationService();
-            navigate.Navigate(typeof(Login), this.DataContext);
+            navigate.Navigate(typeof(MenadzerNarudzba), this.DataContext);
         }
     }
 }
-
