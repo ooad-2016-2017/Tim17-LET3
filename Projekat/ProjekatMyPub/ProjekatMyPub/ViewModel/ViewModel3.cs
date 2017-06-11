@@ -38,8 +38,8 @@ namespace ProjekatMyPub.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        private Int32 indeksOdabranogPica;
-        private Pice odabranoPice;
+        public Int32 indeksOdabranogPica;
+        public Pice odabranoPice;
         //
 
         public List<string> StavkeMenija
