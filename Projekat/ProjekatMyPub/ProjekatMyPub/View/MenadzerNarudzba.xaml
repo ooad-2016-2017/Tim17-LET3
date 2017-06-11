@@ -22,6 +22,22 @@
                 <TextBlock Text="{x:Bind Naziv}" HorizontalAlignment="Left" Grid.Column="0" Margin="10,10,0,0"></TextBlock>
             </Grid>
         </DataTemplate>
+
+        <DataTemplate x:Key="ProizvodiNarudzbaListTemplate" x:DataType="models:Nabavka">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{x:Bind Pice.Naziv}" HorizontalAlignment="Left" Grid.Column="0" Margin="10,10,0,0"></TextBlock>
+                <TextBlock Text="{x:Bind Kolicina}" HorizontalAlignment="Left" Grid.Column="1" Margin="10,10,0,0"></TextBlock>
+            </Grid>
+        </DataTemplate>
+        
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -94,8 +110,34 @@
 
         </ListView>
 
-        <ListView x:Name="listViewMenadzerNarudzba2" HorizontalAlignment="Stretch"  Grid.Row="3" Grid.Column="2" VerticalAlignment="Stretch"  Margin="10,0,10,0" >
+        <ListView ItemTemplate="{StaticResource ProizvodiNarudzbaListTemplate}" IsItemClickEnabled="True" ItemsSource="{Binding Pica, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Stretch"  Grid.Row="3" Grid.Column="2" VerticalAlignment="Stretch"  Margin="0,5,0,0"   >
+            <ListView.Template>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock HorizontalAlignment="Left" Grid.Column="0" Margin="10,10,0,0">Naziv</TextBlock>
+
+
+                        </Grid>
+                        <ItemsPresenter Grid.Row="1"></ItemsPresenter>
+                    </Grid>
+                </ControlTemplate>
+            </ListView.Template>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+
         </ListView>
+        
         <Button x:Name="buttonMenadzerNarudzbaAzuriraj" Content="Azuriraj" Grid.Row ="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5,5,0,10" />
         <Button x:Name="buttonaMenadzerNarudzbaFormiraj" Content="Narudzbenica" Grid.Column="2" HorizontalAlignment="Center" Margin="5,5,0,10" Grid.Row="4" VerticalAlignment="Top"/>
         

@@ -105,6 +105,7 @@
     <Compile Include="Model\Korisnik.cs" />
     <Compile Include="Model\Menadzer.cs" />
     <Compile Include="Model\Musterija.cs" />
+    <Compile Include="Model\MyPubNarucivanje.cs" />
     <Compile Include="Model\Nabavka.cs" />
     <Compile Include="Model\Narudzba.cs" />
     <Compile Include="Model\Pice.cs" />
@@ -221,6 +222,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
