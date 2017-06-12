@@ -219,11 +219,44 @@ namespace ProjekatMyPub.ViewModel
             }
         }
 
+public int RezervisaniBroj
+        {
+            get
+            {
+                return rezervisaniBroj;
+            }
 
-        public bool JeLiOdabrana { get => jeLiOdabrana; set => jeLiOdabrana = value; }
-        public Int32 RezervisaniBroj { get => rezervisaniBroj; set => rezervisaniBroj = value; }
-        public bool RezervisalaJednom { get => rezervisalaJednom; set => rezervisalaJednom = value; }
+            set
+            {
+                rezervisaniBroj = value;
+            }
+        }
 
+        public bool RezervisalaJednom
+        {
+            get
+            {
+                return rezervisalaJednom;
+            }
+
+            set
+            {
+                rezervisalaJednom = value;
+            }
+        }
+
+        public bool JeLiOdabrana
+        {
+            get
+            {
+                return jeLiOdabrana;
+            }
+
+            set
+            {
+                jeLiOdabrana = value;
+            }
+        }
 
         public ViewModel3(LogInVM parent)
         {
