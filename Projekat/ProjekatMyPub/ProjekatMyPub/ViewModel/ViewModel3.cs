@@ -32,7 +32,6 @@ namespace ProjekatMyPub.ViewModel
         public ICommand DugmeDodajPice_Click { get; set; }
         public ICommand DugmeNaruci_Click { get; set; }
         public ICommand DugmeRezervisiStol_Click { get; set; }
-        public ICommand DugmeOtkaziRezervaciju_Click { get; set; }
         public ICommand DugmeGlasajZaPjesmu_Click { get; set; }
 
         //
@@ -219,7 +218,7 @@ namespace ProjekatMyPub.ViewModel
             }
         }
 
-public int RezervisaniBroj
+        public int RezervisaniBroj
         {
             get
             {
@@ -293,7 +292,6 @@ public int RezervisaniBroj
             RezervisalaJednom = false;
 
             DugmeRezervisiStol_Click = new RelayCommand<object>(rezervisi);
-            DugmeOtkaziRezervaciju_Click = new RelayCommand<object>(otkazi_rezervaciju);
         }
 
         public void dodaj_stavku_narudzbe(object parameter)
@@ -317,32 +315,26 @@ public int RezervisaniBroj
             if (IndeksOdabranogStola != -1 && !RezervisalaJednom)
             {
                 OdabraniStol = Stolovi.ElementAt(IndeksOdabranogStola);
-                OdabraniStol.DaLiJeZauzet = true;
-                OdabraniStol.Zauzet = "ZAUZET";
-                OdabraniStol.IzvrsilaRezervaciju = Parent.Korisnik;
-                Stolovi[IndeksOdabranogStola] = OdabraniStol;
-                RezervisaniBroj = IndeksOdabranogStola;
-                RezervisalaJednom = true;
-                navigationService.Navigate(typeof(KorisnikRezervacija), this);
+                if (OdabraniStol.DaLiJeZauzet == false)
+                {
+                    OdabraniStol.DaLiJeZauzet = true;
+                    OdabraniStol.Zauzet = "ZAUZET";
+                    OdabraniStol.IzvrsilaRezervaciju = Parent.Korisnik;
+                    Stolovi[IndeksOdabranogStola] = OdabraniStol;
+                    RezervisaniBroj = IndeksOdabranogStola;
+                    RezervisalaJednom = true;
+                    navigationService.Navigate(typeof(KorisnikRezervacija), this);
+                }
+                else
+                {
+                    var dialog = new MessageDialog("Stol je već rezervisan.", "Neuspješna rezervacija!");
+                    await dialog.ShowAsync();
+                }
             }
             else if(RezervisalaJednom)
             {
                 var dialog = new MessageDialog("Već ste rezervisali drugi stol.", "Neuspješna rezervacija!");
                 await dialog.ShowAsync();
-            }
-        }
-
-        public void otkazi_rezervaciju(object parameter)
-        {
-            if(!RezervisalaJednom)
-            {
-                RezervisalaJednom = false;
-                OdabraniStol.DaLiJeZauzet = false;
-                OdabraniStol.Zauzet = "SLOBODAN";
-                OdabraniStol.IzvrsilaRezervaciju = null;
-                Stolovi[RezervisaniBroj] = OdabraniStol;
-                RezervisaniBroj = 0;
-                navigationService.Navigate(typeof(KorisnikRezervacija), this);
             }
         }
 
